@@ -1,19 +1,25 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Login from './pages/login/Login'
-import Auth from './pages/Auth.tsx/Auth'
+import Auth from './pages/auth/Auth'
+import MainRouter from './pages/MainRouter'
+import AuthRouter from './pages/AuthRouter'
 
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
 
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/auth" element={<Auth />} />
-        </Routes>
-    </BrowserRouter>
-  )
+  useEffect(() => {
+    const token = sessionStorage.getItem('accessToken');
+    console.log(token)
+    if (token) {
+      setIsLogin(true);
+    } else {
+      setIsLogin(false);
+    }
+  }
+  ,[]);
+
+  return isLogin ? <MainRouter /> : <AuthRouter />;
 }
-
 export default App
