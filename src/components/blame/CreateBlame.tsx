@@ -2,7 +2,9 @@ import { useState } from 'react';
 import style from './createBlame.module.css';
 import { BlameRequest } from '../../data/BlameInterface';
 import api from '../../shared/api';
+import { useSelector } from 'react-redux';
 const CreateBlame:React.FC<{ closeFunc:()=>void , refreshBlame:()=>void}> = ({closeFunc , refreshBlame}) => {
+    const user = useSelector((state: any) => state.user);
     const [blame, setBlame] = useState<BlameRequest>(
         {
             authorUuid: 'uuid',
@@ -37,8 +39,8 @@ const CreateBlame:React.FC<{ closeFunc:()=>void , refreshBlame:()=>void}> = ({cl
             <h1>새로운 저격글</h1>
             <div id={style.blameForm}>
                 <div id={style.blameAuthor}>
-                    <img src='http://img1.kakaocdn.net/thumb/R640x640.q70/?fname=http://t1.kakaocdn.net/account_images/default_profile.jpeg' id={style.profile}/>
-                    <div id={style.authorName}>작성자</div>
+                    <img src={user.profile} id={style.profile}/>
+                    <div id={style.authorName}>{user.name}</div>
                 </div>
                 <div id={style.blameTextContainer}>
                     <textarea onChange={e=>onChangeHandler(e)} id={style.text}placeholder='저격글을 작성하세요.'></textarea>
