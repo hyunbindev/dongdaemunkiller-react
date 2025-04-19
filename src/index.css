@@ -13,8 +13,13 @@
 :root {
 
 }
+
 body {
-  color: black;
+  color:rgb(24, 24, 24);
   margin: 0;
   background-color: #EAEEF3;
+}
+a{
+  text-decoration: none;
+  color: inherit;
 }

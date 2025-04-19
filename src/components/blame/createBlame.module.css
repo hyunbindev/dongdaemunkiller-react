@@ -1,0 +1,56 @@
+#createBlame{
+    background-color: white;
+    width: 90vw;
+    border-radius: 5px;
+    padding:0.5rem;
+    h1{
+        margin:0.3rem 0;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+    box-shadow:  rgba(0, 0, 0, 0.151) 0px 1px 10px 0px;
+}
+
+#blameAuthor{
+    display: flex;
+    margin-top: 0.8rem;
+    align-items: center;
+    img#profile{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+    }
+    #authorName{
+        font-size: 1.2rem;
+        font-weight: 800;
+    }
+}
+
+#blameTextContainer{
+    textarea{
+        font-size: 1rem;
+        width: 100%;
+        min-height: 8rem;
+        resize: none;
+        border: none;
+        padding: 0.5rem;
+        box-sizing: border-box;
+        outline: none;
+    }
+}
+
+button#submit{
+    background-color: #09a573;
+    font-size: 1.1rem;
+    border: none;
+    padding: 0.3rem 1.5rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+}
+
+div#footer{
+    display:flex;
+    justify-content: end;
+}

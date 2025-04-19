@@ -1,0 +1,62 @@
+#blamePage{
+    display: flex;
+    flex-direction: column;
+    #newPost{
+        position: fixed;
+        box-sizing: border-box;
+        padding: 0.8rem;
+        width: 100vw;
+
+        button:hover{
+            background-color: #077451;
+        }
+        button{
+            width: 3.5rem;
+            width: 100%;
+            font-size: 1.2rem;
+            border: none;
+            background-color: #09A573;
+            color:white;
+            padding: 0.5rem 2rem;
+            font-weight: 800;
+            border-radius: 5px;
+            box-shadow:  rgba(0, 0, 0, 0.315) 0px 1px 4px 0px;
+        }
+    }
+    #content{
+        margin-top: 4rem;
+    }
+}
+#blameDetailPage{
+    background-color: white;
+    box-shadow:  rgba(0, 0, 0, 0.315) 0px 1px 4px 0px;
+}
+.blameComment{
+    box-sizing: border-box;
+    display: flex;
+    border-top: solid 1px #EAEAEA;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    textarea{
+        resize: none;
+        border:none;
+        border-radius: 5px;
+        margin:0rem 0.5rem;
+        box-sizing: border-box;
+        flex-grow: 1;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+    #submit{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #09A573;
+        font-size: 1rem;
+        border: none;
+        padding: 0.3rem 1.5rem;
+        border-radius: 5px;
+        color: white;
+        margin-right: 0.5rem;
+    }
+}

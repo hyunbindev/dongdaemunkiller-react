@@ -7,10 +7,12 @@ export default defineConfig({
   server:{
     proxy:{
       '/api': {
-        target: 'http://localhost:8080', // 실제 API 서버 주소
+        //target: 'http://218.39.156.143', // dev서버 주소
+        target: 'http://1.231.178.91:8080', //local 서버 주소
         changeOrigin: true,
       }
     },
+    host: '0.0.0.0',
     port:3000,
   }
 })

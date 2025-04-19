@@ -22,6 +22,7 @@
 }
 .text{
     padding: 0rem 0.5rem 0.5rem 0.5rem;
+    white-space: pre-line;
 }
 .footer{
     display: flex;

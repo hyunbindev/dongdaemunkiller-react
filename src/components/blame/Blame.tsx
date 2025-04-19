@@ -1,23 +1,25 @@
 import style from'./blameStyle.module.css';
 import comment from '../../assets/comment.svg'
 import share from '../../assets/share.svg';
-const Blame = () => {
+import { BlameResponse } from '../../data/BlameInterface';
+import { convertDate } from '../../utils/convertDate';
+const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
     return (
         <div className={style.blame}>
             <div className={style.author}>
-                <img src='http://img1.kakaocdn.net/thumb/R640x640.q70/?fname=http://t1.kakaocdn.net/account_images/default_profile.jpeg'></img>
+                <img src={blame.author.profile}></img>
                 <div className={style.author_desc}>
-                    <div className={style.name}>작성자</div>
-                    <div className={style.createdAt}>2023.10.01</div>
+                    <div className={style.name}>{blame.author.name}</div>
+                    <div className={style.createdAt}>{convertDate(blame.createdAt)}</div>
                 </div>
             </div>
             <div className={style.text}>
-                예준병신같음 ㅋㅋㅋㅋㅋ
+                {blame.text}
             </div>
             <div className={style.footer}>
                 <div className={style.comment}>
                     <img src={comment} alt="comment" />
-                    <div className={style.comment_count}>0</div>
+                    <div className={style.comment_count}>{blame.commentsCount}</div>
                 </div>
                 <div className={style.share}>
                     <img src={share} alt="share" />

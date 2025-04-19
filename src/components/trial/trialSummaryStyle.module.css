@@ -1,0 +1,18 @@
+#blameSummary{
+    
+}
+#header{
+    border-bottom: 1px solid #EAEEF3;
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h1{
+        font-size: 1.2rem;
+        margin: 0.8rem;
+    }
+    #more{
+        margin-right: 1rem;
+        color: rgb(42, 42, 44);
+    }
+}
