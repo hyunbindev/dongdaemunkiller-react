@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import BlameSummary from "../../components/blame/BlameSummary";
 import SherrifSummary from "../../components/sheriff/SheriffSummary";
 import TrialSummary from "../../components/trial/TrailSummary";

@@ -1,21 +1,23 @@
 import React,{useEffect} from 'react';
+import { useDispatch, } from 'react-redux';
+import { loginUser, UserState } from '../../store/slice/userSlice';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 const Auth = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     useEffect(()=>{
         const accessToken = searchParams.get('accessToken');
         sessionStorage.setItem('accessToken', accessToken!);
-        axios.get('/api/v1/member', {
+        axios.get<UserState>('/api/v1/member', {
             headers: {
               Authorization: accessToken,
               'Content-Type': 'application/json',
-              // 다른 커스텀 헤더도 추가 가능
             }
           })
-          .then((response: any) => {
-            console.log(response.data);
+          .then((response) => {
+            dispatch(loginUser(response.data));
             navigate('/');
           })
           .catch((error) => {

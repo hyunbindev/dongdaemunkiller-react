@@ -2,8 +2,26 @@ import { Route, Routes } from "react-router-dom";
 import Main from "./main/Main";
 import BlamePage from "./blame/BlamePage";
 import BlameDetailPage from "./blame/BlameDetailPage";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { loginUser, UserState } from "../store/slice/userSlice";
+import api from "../shared/api";
 
 const MainRouter = () => {
+    const user = useSelector((state: any) => state.user);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if(user.uuid === null) {
+            api.get<UserState>('/api/v1/member')
+            .then((res) => {
+                dispatch(loginUser(res.data));
+            })
+            .catch((err:any) => {
+                console.error(err);
+            });
+        }
+    },[user]);
+    
     return (
         <Routes>
             <Route path="/" element={<Main />}/>
