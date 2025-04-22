@@ -41,6 +41,7 @@ const useBlameDetail = (blameId:string) => {
             text:text
         }).then((response) => {
             setComments([]);
+            setNextPage(false);
             getBlameComments(0); // Refresh comments after posting a new one
         }).catch((error) => {
             console.error('Error posting new blame comment:', error);
