@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import style from './blamePage.module.css';
 import Blame from '../../components/blame/Blame';
 import Modal from '../../components/modal/Modal';
-import CreateBlame from '../../components/blame/CreateBlame';
+import CreateBlame from '../../components/blame/create/CreateBlame';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import useBlame from '../../hooks/useBlame';

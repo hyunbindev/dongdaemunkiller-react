@@ -6,9 +6,10 @@
     h1{
         margin:0.3rem 0;
         font-size: 1.1rem;
-        text-align: center;
+        text-align: left;
     }
     box-shadow:  rgba(0, 0, 0, 0.151) 0px 1px 10px 0px;
+    box-sizing: border-box;
 }
 
 #blameAuthor{
@@ -41,16 +42,33 @@
 }
 
 button#submit{
-    background-color: #09a573;
+    background-color: #2ba37d;
     font-size: 1.1rem;
     border: none;
     padding: 0.3rem 1.5rem;
     border-radius: 5px;
     color: white;
     font-weight: 800;
+    margin-bottom: 0.5rem;
 }
 
 div#footer{
     display:flex;
-    justify-content: end;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+#memberList{
+    max-height: 20rem;
+    overflow-y: auto;
+}
+input#searchMember{
+    font-size: 1.2rem;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.2rem;
+    border-radius: 2px;
+    border: #09a573 2px solid;
+    outline: none;
+    margin-bottom: 0.5rem;
 }
