@@ -12,7 +12,8 @@ const useBlameDetail = (blameId:string) => {
     const getBlame = ()=>{
         api.get<BlameResponse>(`/api/v1/blame/${blameId}`)
             .then((response) => {
-                setBlame(response.data)})
+                setBlame(response.data)
+            })
             .catch((error) => {
                 console.error('Error fetching blame data:', error);
             }
@@ -31,6 +32,8 @@ const useBlameDetail = (blameId:string) => {
             }
         );
     }
+
+
     const postNewBlameComment = (text:string) => {
         if (text.trim().length < 1){
             alert("댓글을 입력해주세요.");
@@ -41,6 +44,7 @@ const useBlameDetail = (blameId:string) => {
             text:text
         }).then((response) => {
             setComments([]);
+            setNextPage(false);
             getBlameComments(0); // Refresh comments after posting a new one
         }).catch((error) => {
             console.error('Error posting new blame comment:', error);

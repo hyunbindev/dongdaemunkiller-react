@@ -11,6 +11,8 @@ const useBlame = () =>{
         api.get('/api/v1/blame',{params:{page:0}})
         .then((res)=>{
             setBlameList(res.data.content.blames);
+            setNextPage(false);
+            setPage(0);
             setNextPage(res.data.nextPage);
         })
         .catch((err)=>{
