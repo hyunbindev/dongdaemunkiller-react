@@ -7,9 +7,10 @@ import style from './createBlame.module.css'
 interface SelectMemberProps{
     setPhase:(phaseNumber:number)=>void;
     blameRequest:BlameRequest;
+    submitHandler:()=>void;
 }
 
-const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest}) =>{
+const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest,submitHandler}) =>{
     const {getAllMembers,getMemberByName,members} = useMemberSimple();
     useEffect(()=>{
         getAllMembers(0);
@@ -29,6 +30,7 @@ const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest}) =>{
         }
     </div>
     <div id={style.footer}>
+        <button id={style.submit} onClick={submitHandler}>전체공개로 게시</button>
         <button id={style.submit} onClick={()=>setPhase(1)}>다음</button>
     </div>
     </>)

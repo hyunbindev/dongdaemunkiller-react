@@ -5,12 +5,11 @@ import style from './createBlame.module.css'
 interface EditBlameProps{
     user:UserState;
     onChangeHandler:(e:React.ChangeEvent<HTMLTextAreaElement>)=>void;
-    submitHandler:()=>void;
     setPhase:(phaseNumber:number)=>void;
     blameRequest:BlameRequest;
 }
 
-const EditBlame:React.FC<EditBlameProps> = ({user,onChangeHandler,submitHandler,setPhase ,blameRequest})=>{
+const EditBlame:React.FC<EditBlameProps> = ({user,onChangeHandler,setPhase ,blameRequest})=>{
     return(
         <>
         <h1>새 저격글 작성</h1>
@@ -24,8 +23,7 @@ const EditBlame:React.FC<EditBlameProps> = ({user,onChangeHandler,submitHandler,
             </div>
         </div>
         <div id={style.footer}>
-            <button id={style.submit} onClick={submitHandler}>게시</button>
-            <button id={style.submit} onClick={()=>setPhase(0)}>이전</button>
+            <button id={style.submit} onClick={()=>setPhase(1)}>다음</button>
         </div>
         </>
     )

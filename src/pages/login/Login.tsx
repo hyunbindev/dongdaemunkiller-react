@@ -5,7 +5,7 @@ const Login = () => {
         <div id={loginStyle.login}>
             <h1>동대문 Killer</h1>
             {/* <a href="http://218.39.156.143/oauth2/authorization/kakao">동대문 Killer 시작하기</a> */}
-            <a href="/api/oauth2/authorization/kakao">동대문 Killer 시작하기</a>
+            <a href={`${import.meta.env.VITE_API_HOST}/api/oauth2/authorization/kakao`}>동대문 Killer 시작하기</a>
         </div>
     );
 }

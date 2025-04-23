@@ -32,9 +32,9 @@ const CreateBlame:React.FC<CreateBlameProps> = ({closeFunc , refreshBlame}) => {
     const phaseRenderHandler = (phase:number)=>{
         switch (phase) {
             case 0:
-                return <SelectMember setPhase={setPhase} blameRequest={blame}/>
+                return <EditBlame user={user} onChangeHandler={onChangeHandler} setPhase={setPhase} blameRequest={blame}/>
             case 1:
-                return <EditBlame user={user} onChangeHandler={onChangeHandler} submitHandler={submitHandler} setPhase={setPhase} blameRequest={blame}/>
+                return <SelectMember setPhase={setPhase} blameRequest={blame} submitHandler={submitHandler}/>
             default:
                 return;
         }
