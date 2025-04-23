@@ -8,7 +8,7 @@ export default defineConfig({
       '/api': {
         //target: 'http://218.39.156.143', // dev서버 주소
         //target: 'http://1.231.178.91:8080', //local 서버 주소
-        target: import.meta.env.VITE_API_HOST,
+        //target: import.meta.env.VITE_API_HOST,
         changeOrigin: true,
       }
     },

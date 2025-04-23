@@ -30,8 +30,8 @@ const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest,submitHa
         }
     </div>
     <div id={style.footer}>
-        <button id={style.submit} onClick={submitHandler}>전체공개로 게시</button>
-        <button id={style.submit} onClick={()=>setPhase(1)}>다음</button>
+        <button id={style.submit} onClick={submitHandler}>전체공개로 저격</button>
+        <button id={style.submit} onClick={()=>setPhase(0)}>이전</button>
     </div>
     </>)
 }

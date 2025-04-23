@@ -1,0 +1,10 @@
+#picture_page{
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+
+}
+#picture_page::-webkit-scrollbar {
+    display: none;
+}

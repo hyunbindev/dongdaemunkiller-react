@@ -1,2 +1,26 @@
 #login{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(250deg, #2ba37d, #9bd440);
+    color: white;
+    padding:2rem;
+    box-sizing: border-box;
+    h1{
+        font-size: 3rem;
+    }
+    a#start{
+        border-radius: 50px;
+        padding: 0.8rem 2rem;
+        border: white 3px solid;
+        position: absolute;
+        bottom: 10rem;
+        font-size: 1.5rem;
+        font-weight: 800;
+        transition: background-color 0.2s ease-in-out;
+        transition: color 0.3 ease-in-out;
+    }
+    a#start:hover{
+        background-color: white;
+        color:#2ba37d;
+    }
 }

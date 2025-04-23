@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { loginUser, UserState } from "../store/slice/userSlice";
 import api from "../shared/api";
+import PicturePage from "./pictures/PicturePage";
 
 const MainRouter = () => {
     const user = useSelector((state: any) => state.user);
@@ -23,11 +24,14 @@ const MainRouter = () => {
     },[user]);
     
     return (
+        <>
         <Routes>
             <Route path="/" element={<Main />}/>
             <Route path="/blame" element={<BlamePage/>}/>
             <Route path="/blame/:blameId" element={<BlameDetailPage/>}/>
+            <Route path="/pictures" element={<PicturePage/>}/>
         </Routes>
+        </>
     );
 }
 export default MainRouter;
