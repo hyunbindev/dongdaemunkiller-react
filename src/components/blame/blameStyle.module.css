@@ -1,8 +1,10 @@
 .blame{
+    position:relative;
     width: 100%;
     margin-bottom: 0.3rem;
     background-color: white;
 }
+
 .author{
     padding: 0.5rem;
     display: flex;
@@ -20,10 +22,12 @@
         justify-content: space-between;
     }
 }
+
 .text{
     padding: 0rem 0.5rem 0.5rem 0.5rem;
     white-space: pre-line;
 }
+
 .footer{
     display: flex;
     padding: 0.5rem;
@@ -45,6 +49,7 @@
         }
     }
 }
+
 .targetMember{
     margin:5px;
     padding: 10px;
@@ -57,6 +62,34 @@
         margin-right: 10px;
         .name{
             font-size: 1.5rem;
+        }
+    }
+}
+
+.blinder{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top:0px;
+    left:0px;
+    z-index: 10;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter:blur(5px);
+    .alert{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+        font-weight: 800;
+        p{
+            margin: 0px;
         }
     }
 }

@@ -31,10 +31,11 @@ const BlamePage = () => {
             <div id={style.newPost}>
                 <button onClick={()=>modalOpenHandler()}>새 저격글 작성하기</button>
             </div>
+            
             <div id={style.content}>
                 {
                     blameList.map((blame, index) => {
-                        return (
+                        return blame.targeted ?(<Blame key={blame.id} blame={blame}/>):(
                             <Link key={blame.id} to={`/blame/${blame.id}`}>
                                 <Blame key={blame.id} blame={blame}/>
                             </Link>

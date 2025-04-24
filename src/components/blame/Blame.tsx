@@ -25,6 +25,12 @@ const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
                     <img src={share} alt="share" />
                 </div>
             </div>
+        {blame.targeted && 
+            <div className={style.blinder}>
+                <div className={style.alert}>
+                    <p>저격 당해 확인할 수 없는 글입니다.</p>
+                </div>
+            </div>}
         </div>
     );
 };

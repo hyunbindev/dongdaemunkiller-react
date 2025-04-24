@@ -23,7 +23,7 @@ const BlameSummary = () => {
             <div>
                 {
                     blameList.map((blame, index) => {
-                        return (
+                        return blame.targeted?(<Blame key={blame.id} blame={blame}/>):(
                             <Link to={`/blame/${blame.id}`} key={index}>   
                                 <Blame blame={blame}/>
                             </Link>
