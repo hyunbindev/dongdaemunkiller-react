@@ -1,12 +1,13 @@
 import style from './picture.module.css';
 import example from '../../assets/example.png'
+import example_2 from '../../assets/example-2.png'
 import comment_icon from '../../assets/comment-white.svg'
 import share_icon from '../../assets/share-white.svg'
 import recommend_icon from '../../assets/recommend-white.svg'
 const Picture = ()=>{
     return(
         <div className={style.picture}>
-            <img className={style.img} src={example}>
+            <img className={style.img} src={example_2}>
             </img>
             <div className={style.controller}>
                 <div>
