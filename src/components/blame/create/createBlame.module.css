@@ -68,7 +68,10 @@ input#searchMember{
     box-sizing: border-box;
     padding: 0.2rem;
     border-radius: 2px;
-    border: #09a573 2px solid;
     outline: none;
     margin-bottom: 0.5rem;
+    border: #ccc 2px solid;
+}
+input#searchMember:focus{
+    border: #09a573 2px solid;
 }

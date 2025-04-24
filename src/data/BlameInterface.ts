@@ -9,6 +9,7 @@ export interface BlameResponse{
     text : string,
     createdAt : string,
     commentsCount : number
+    targeted: boolean
 }
 
 export interface BlameRequest{

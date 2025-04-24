@@ -10,6 +10,14 @@ interface EditBlameProps{
 }
 
 const EditBlame:React.FC<EditBlameProps> = ({user,onChangeHandler,setPhase ,blameRequest})=>{
+
+    const nextPhase = () =>{
+        if(blameRequest.content.trim().length === 0){
+            alert('저격글을 작성해주세요.');
+            return;
+        }
+        setPhase(1);
+    }
     return(
         <>
         <h1>새 저격글 작성</h1>
@@ -23,7 +31,7 @@ const EditBlame:React.FC<EditBlameProps> = ({user,onChangeHandler,setPhase ,blam
             </div>
         </div>
         <div id={style.footer}>
-            <button id={style.submit} onClick={()=>setPhase(1)}>다음</button>
+            <button id={style.submit} onClick={nextPhase}>다음</button>
         </div>
         </>
     )

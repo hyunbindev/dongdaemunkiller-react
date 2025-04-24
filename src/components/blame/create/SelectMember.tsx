@@ -7,7 +7,7 @@ import style from './createBlame.module.css'
 interface SelectMemberProps{
     setPhase:(phaseNumber:number)=>void;
     blameRequest:BlameRequest;
-    submitHandler:()=>void;
+    submitHandler:(targetUuid?:string)=>void;
 }
 
 const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest,submitHandler}) =>{
@@ -15,6 +15,7 @@ const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest,submitHa
     useEffect(()=>{
         getAllMembers(0);
     },[]);
+
     return(
     <>
     <h1>저격 대상 선택</h1>
@@ -24,13 +25,13 @@ const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest,submitHa
         {
             members.map((member)=>(
                 <div key={member.uuid} className={style.member}>
-                    <BlameTargetMember member={member}/>
+                    <BlameTargetMember member={member} submitHandler={submitHandler}/>
                 </div>
             ))
         }
     </div>
     <div id={style.footer}>
-        <button id={style.submit} onClick={submitHandler}>전체공개로 저격</button>
+        <button id={style.submit} onClick={()=>submitHandler()}>전체공개로 저격</button>
         <button id={style.submit} onClick={()=>setPhase(0)}>이전</button>
     </div>
     </>)

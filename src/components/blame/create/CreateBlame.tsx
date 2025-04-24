@@ -40,21 +40,27 @@ const CreateBlame:React.FC<CreateBlameProps> = ({closeFunc , refreshBlame}) => {
         }
     }
 
-    const submitHandler = () => {
+    const submitHandler = (targetUuid?: string) => {
         if (blame.content.trim().length < 1) {
             alert('저격글을 작성해주세요.');
             return;
         }
-        api.post('/api/v1/blame', blame)
-            .then((res:any) => {
+
+        const payload = targetUuid && targetUuid.trim().length > 0
+            ? { ...blame, targetUuid: targetUuid }
+            : blame;
+    
+        api.post('/api/v1/blame', payload)
+            .then((res: any) => {
                 console.log(res.data);
                 refreshBlame();
                 closeFunc();
             })
-            .catch((err:any) => {
+            .catch((err: any) => {
                 console.error(err);
             });
-        }
+    };
+
 
     return (
         <div id={style.createBlame}>
