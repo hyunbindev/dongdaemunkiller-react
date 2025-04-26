@@ -41,8 +41,8 @@
     }
 }
 
-button#submit{
-    background-color: #2ba37d;
+button{
+    background-color: #757575;
     font-size: 1.1rem;
     border: none;
     padding: 0.3rem 1.5rem;
@@ -74,4 +74,25 @@ input#searchMember{
 }
 input#searchMember:focus{
     border: #09a573 2px solid;
+}
+button#submit{
+    background-color: #09a573;
+    font-size: 1.1rem;
+    border: none;
+    padding: 0.3rem 1.5rem;
+    border-radius: 5px;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+#noMember{
+    font-size: 1rem;
+    text-align: center;
+    margin-top: 1rem;
+    color: #757575;
+    img{
+        width: 25%;
+        height: 25%;
+        margin-bottom: 0.5rem;
+    }
 }

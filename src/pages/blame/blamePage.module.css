@@ -60,3 +60,18 @@
         margin-right: 0.5rem;
     }
 }
+#info{
+    margin: 0.5rem;
+    background-color: white;
+    padding:0.5rem;
+    border-radius: 5px;
+    box-shadow:  rgba(0, 0, 0, 0.164) 0px 1px 4px 0px;
+    h2{
+        margin: 0.5rem;
+    }
+    p{
+        margin: 0.5rem;
+        font-size: 1rem;
+        color: #777777;
+    }
+}

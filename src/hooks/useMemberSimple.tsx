@@ -16,8 +16,17 @@ const useMemberSimple = () => {
     }
 
     const getMemberByName = (name:string,page:number) => {
-
+        api.get('/api/v1/member/search',{params:{name:name,page:page}})
+        .then((response) => {
+            setMembers(response.data.content.members);
+        })
+        .catch((error) => { 
+            console.error('Error fetching members:', error);
+        });
     }
-    return {members,getAllMembers,getMemberByName};
+    const initMembers = () => {
+        setMembers([]);
+    }
+    return {members,getAllMembers,getMemberByName,initMembers};
 }
 export default useMemberSimple;

@@ -33,6 +33,10 @@ const BlamePage = () => {
             </div>
             
             <div id={style.content}>
+                <div id={style.info}>
+                    <h2>동대문 저격</h2>
+                    <p>저격글을 작성하거나 저격글에 덧글을 다실 수 있습니다.<br/> 저격당한 대상은 게시글을 확인 할 수 없습니다.</p>
+                </div>
                 {
                     blameList.map((blame, index) => {
                         return blame.targeted ?(<Blame key={blame.id} blame={blame}/>):(

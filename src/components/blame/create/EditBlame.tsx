@@ -31,7 +31,7 @@ const EditBlame:React.FC<EditBlameProps> = ({user,onChangeHandler,setPhase ,blam
             </div>
         </div>
         <div id={style.footer}>
-            <button id={style.submit} onClick={nextPhase}>다음</button>
+            <button onClick={nextPhase}>다음</button>
         </div>
         </>
     )
