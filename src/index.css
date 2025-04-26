@@ -1,12 +1,7 @@
-@font-face {
-  font-family: 'pretendard';
-  src: url('public/font/PretendardVariable.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
 
 * {
-  font-family: 'pretendard';
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 
