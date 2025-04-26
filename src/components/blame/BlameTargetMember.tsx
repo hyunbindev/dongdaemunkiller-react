@@ -7,8 +7,16 @@ interface BlameTargetMemberProps{
 }
 
 const BlameTargetMember:React.FC<BlameTargetMemberProps> = ({member, submitHandler})=>{
+
+    const confirmTarget = () => {
+        if(confirm(`${member?.name}님을 저격하시겠습니까?`)){
+            submitHandler(member?.uuid);
+        }
+        return;
+    }
+
     return(
-    <div className={style.targetMember} onClick={()=>submitHandler(member?.uuid)}>
+    <div className={style.targetMember} onClick={confirmTarget}>
         <img src={member?.profile}></img>
         <div className={style.name}>{member?.name}</div>
     </div>

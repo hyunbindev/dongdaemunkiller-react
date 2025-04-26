@@ -20,12 +20,13 @@ const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest,submitHa
         }else{
             initMembers();
         }
-    }, 500);
+    }, 300);
 
     const handleSearchInput = (event: React.ChangeEvent<HTMLInputElement>) => {
         const name = event.target.value;
         debouncedGetMemberByName(name);
     };
+
 
     return(
     <>
