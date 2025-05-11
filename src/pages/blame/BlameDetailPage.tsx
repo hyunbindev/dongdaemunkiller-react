@@ -15,6 +15,7 @@ const BlameDetailPage = () => {
         getBlame();
         getBlameComments(0);
     },[]);
+    
     useEffect(()=>{
         if (inView){
             getNextPage();

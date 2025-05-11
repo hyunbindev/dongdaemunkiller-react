@@ -1,4 +1,4 @@
-#blamePage{
+#page{
     display: flex;
     flex-direction: column;
     #newPost{
@@ -27,11 +27,7 @@
         margin-top: 4rem;
     }
 }
-#blameDetailPage{
-    background-color: white;
-    box-shadow:  rgba(0, 0, 0, 0.315) 0px 1px 4px 0px;
-}
-.blameComment{
+.comment{
     box-sizing: border-box;
     display: flex;
     border-top: solid 1px #EAEAEA;
@@ -48,18 +44,16 @@
         font-size: 1rem;
     }
     #submit{
-        width: 2.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: #09A573;
-        font-size: 1.1rem;
+        font-size: 1rem;
         border: none;
         padding: 0.3rem 1.5rem;
         border-radius: 5px;
         color: white;
         margin-right: 0.5rem;
-        font-weight: 600;
     }
 }
 #info{

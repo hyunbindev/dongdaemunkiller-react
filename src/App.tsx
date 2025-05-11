@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Login from './pages/login/Login'
 import Auth from './pages/auth/Auth'
-import MainRouter from './pages/MainRouter'
-import AuthRouter from './pages/AuthRouter'
+import MainRouter from './router/MainRouter'
+import AuthRouter from './router/AuthRouter'
 
 function App() {
   const [isLogin, setIsLogin] = useState(false);

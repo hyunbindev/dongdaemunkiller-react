@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import style from './blamePage.module.css';
+import style from '../commonPage.module.css'
 import Blame from '../../components/blame/Blame';
 import Modal from '../../components/modal/Modal';
 import CreateBlame from '../../components/blame/create/CreateBlame';
@@ -27,7 +27,7 @@ const BlamePage = () => {
     }, [inView]);
 
     return (
-        <div id={style.blamePage}>
+        <div id={style.page}>
             <div id={style.newPost}>
                 <button onClick={()=>modalOpenHandler()}>새 저격글 작성하기</button>
             </div>

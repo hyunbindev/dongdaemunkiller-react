@@ -1,0 +1,20 @@
+.selectionBar{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.5rem;
+    div.info{
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-bottom: 0.3rem;
+        .title{
+            font-weight: 600;
+        }
+        .ratio{
+            font-size: 0.8rem;
+        }
+    }
+    canvas.bar{
+        width: 100%;
+    }
+}

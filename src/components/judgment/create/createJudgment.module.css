@@ -1,0 +1,51 @@
+#createJudgment{
+    padding:0.3rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow:  rgba(0, 0, 0, 0.151) 0px 1px 10px 0px;
+    h1{
+        font-size: 1.2rem;
+    }
+    label{
+        font-weight: 600;
+    }
+    #titleContainer{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        input{
+            border: #ccc 2px solid;
+            border-radius: 2px;
+            padding:0.3rem;
+            font-size: 1.1rem;
+            outline: none;
+        }
+        input:focus{
+            border: #09a573 2px solid;
+        }
+    }
+    #textContainer{
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem;
+        textarea{
+            border: #ccc 2px solid;
+            border-radius: 2px;
+            padding:0.3rem;
+            font-size: 1.1rem;
+
+            outline: none;
+            min-height: 10rem;
+            resize: none;
+        }
+        textarea:focus{
+            border: #09a573 2px solid;
+        }
+    }
+    #selectionContainer{
+        display: flex;
+        flex-direction: column;
+        padding:0.5rem;
+    }
+}
