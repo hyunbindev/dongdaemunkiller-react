@@ -11,24 +11,37 @@ const useJudgmentVote = (judgmentId:string) => {
     useEffect(()=>{
         getVoteResult();
     },[])
+
     useEffect(()=>{
-        let totalCount = 0;
-        voteResult.map((result)=>{totalCount+=result.voteCount});
-        setTotalCount(totalCount)
+        setTotalCount(getTotalVoteCount(voteResult));
     },[voteResult])
+
     const getVoteResult=()=>{
         api.get('/api/v1/judgment/vote',{params:{judgmentId:judgmentId}})
         .then((res)=>{
-            setVoteResult(res.data.voteResult);
+            setVoteResult([...res.data.voteResult].sort((a, b) => a.selectionTitle.localeCompare(b.selectionTitle)));
             setVote(res.data.voted);
+            setTotalCount(getTotalVoteCount(res.data.voteResult));
         })
         .catch((err)=>console.error(err));
     }
+
     const vote = (judgmentId:string,selectionId:string)=>{
         api.post('/api/v1/judgment/vote',{"judgmentId":judgmentId,"selectionId":selectionId})
         .then((res)=>{getVoteResult()})
         .catch((err)=>console.log(err));
     }
-    return{voteResult ,totalCount,voted ,vote};
+
+    const voteCancel = (judgmentId:string)=>{
+        api.delete('/api/v1/judgment/vote',{params:{judgmentId:judgmentId}})
+        .then(()=>getVoteResult())
+        .catch((err)=>console.error(err));
+    }
+    function getTotalVoteCount(voteResult:JudgmentVoteCountResponse[]){
+        let totalCount = 0;
+        voteResult.map((result)=>{totalCount+=result.voteCount});
+        return totalCount;
+    }
+    return{voteResult ,totalCount,voted ,vote,voteCancel};
 }
 export default useJudgmentVote;

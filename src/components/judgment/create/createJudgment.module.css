@@ -1,11 +1,15 @@
 #createJudgment{
+    overflow: auto;
     padding:0.3rem;
+    border-radius: 5px;
     background-color: white;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     box-shadow:  rgba(0, 0, 0, 0.151) 0px 1px 10px 0px;
     h1{
-        font-size: 1.2rem;
+        margin:0.3rem;
+        font-size: 1.5rem;
     }
     label{
         font-weight: 600;
@@ -47,5 +51,31 @@
         display: flex;
         flex-direction: column;
         padding:0.5rem;
+    }
+    #btnContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        #addSelectionBtn{
+            font-size: 1rem;
+            font-weight: 300;
+            padding: 0.3rem 2rem;
+            margin-bottom: 0.5rem;
+        }
+        #submitJudgmentBtn{
+            margin-top: 1rem;
+            width: 100%;
+            font-size: 1.5rem;
+            font-weight: 500;
+            background-color: #09A573;
+        }
+    }
+    #closeBtn{
+        position: absolute;
+        width: 2rem;
+        right:0;
+        top: 0;
+        padding: 1rem;
     }
 }

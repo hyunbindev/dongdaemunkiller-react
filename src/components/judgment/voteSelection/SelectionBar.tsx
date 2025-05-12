@@ -1,13 +1,15 @@
 import { useEffect, useRef } from "react";
 import style from './selectionBar.module.css'
+import Judgment from "../Judgment";
 
 interface SelectionBarProps{
+    judgmentId:string;
     title:string;
     voteCount:number;
     totalVoteCount:number;
 }
 
-const SelectionBar:React.FC<SelectionBarProps> =({title,voteCount,totalVoteCount})=>{
+const SelectionBar:React.FC<SelectionBarProps> =({judgmentId, title,voteCount,totalVoteCount,})=>{
     const canvasRef = useRef<HTMLCanvasElement|null>(null);
     useEffect(()=>{
         const canvas = canvasRef.current;

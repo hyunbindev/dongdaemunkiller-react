@@ -38,6 +38,6 @@ const useBlame = () =>{
         initBlamelist();
     },[]);
 
-    return { blameList ,initBlamelist , getNextPage};
+    return { blameList ,initBlamelist , getNextPage ,nextPage};
 }
 export default useBlame;

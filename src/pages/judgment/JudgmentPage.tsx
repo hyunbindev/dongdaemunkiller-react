@@ -2,12 +2,29 @@ import { Link } from 'react-router-dom';
 import Judgment from '../../components/judgment/Judgment';
 import useJudgment from '../../hooks/useJudgment';
 import style from '../commonPage.module.css';
+import { useEffect, useState } from 'react';
+import Modal from '../../components/modal/Modal';
+import CreateJudgment from '../../components/judgment/create/CreateJudgment';
+import { useInView } from 'react-intersection-observer';
 const JudgmentPage = () => {
-  const {judgmentList, initJudgmentlist} = useJudgment();
+  const {judgmentList, initJudgmentlist ,getNextPage} = useJudgment();
+  const [ref, inView] = useInView();
+  useEffect(()=>{
+    if(inView){
+      getNextPage();
+    }
+  },[])
+  useEffect(() => {
+      if (inView) {
+          getNextPage();
+      }
+  }, [inView]);
   return (
     <div id={style.page}>
       <div id={style.newPost}>
-        <button>새 재판 시작하기</button>
+        <Link to={'/judgment/create'}>
+          <button>새 재판 시작하기</button>
+        </Link>
       </div>
       <div id={style.content}>
         <div id={style.info}>
@@ -26,6 +43,7 @@ const JudgmentPage = () => {
                     </Link>})
         }
       </div>
+      <div ref={ref} style={{height:"10px"}}></div>
     </div>
   );
 }

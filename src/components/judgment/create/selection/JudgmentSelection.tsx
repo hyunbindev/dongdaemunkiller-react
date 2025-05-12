@@ -12,9 +12,9 @@ const JudgmentSelection:React.FC<judgmentSelectionProps> = ({selectionTitle,inde
     return(
         <div className={style.judgmentSelection}>
             <input placeholder='판결 선택지 내용을 입력해 주세요.' value={selectionTitle} onChange={(e)=>selectionTitleHandler(e.target.value,index)}></input>
-            <div className={style.deleteIcon}>
+            <div className={style.deleteIcon} onClick={()=>{deleteSelection(index)}}>
                 <img src={deleteIcon}/>
-                <div className={style.text} onClick={()=>{deleteSelection(index)}}>삭제</div>
+                <div className={style.text}>삭제</div>
             </div>
         </div>
     )

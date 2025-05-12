@@ -1,11 +1,12 @@
 import { filter } from "lodash";
 import { useState } from "react";
 import api from '../shared/api';
+import { useNavigate } from "react-router-dom";
 const useCreatejudgment = () =>{
     const [selections, setSelections] = useState<string[]>(['',]);
     const [title, setTitle] = useState<string>('');
     const [text, setText] = useState<string>('');
-
+    const navigate = useNavigate();
     const selectionTitleHandler=(title:string,index:number)=>{
         setSelections(prev => {
             const updated = [...prev];
@@ -48,7 +49,7 @@ const useCreatejudgment = () =>{
                 "text" : text,
                 "selections" : mappedSelections,
             }
-        ).then((res)=>console.log(res))
+        ).then((res)=>navigate('/judgment'))
         .catch((err)=>console.error(err));
     }
 

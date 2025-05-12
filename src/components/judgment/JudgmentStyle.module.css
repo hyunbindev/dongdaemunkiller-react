@@ -19,7 +19,7 @@
     }
 }
     h1.title{
-        font-size: 1.3rem;
+        font-size: 1rem;
         margin: 0;
         padding: 0 0.5rem;
     }
@@ -27,6 +27,13 @@
         color: #333;
         margin: 0px;
         padding: 0.5rem;
+    }
+    div#voteCancelContainer{
+        display: flex;
+        justify-content: end;
+        padding-right: 0.5rem;
+        margin: 1rem 0;
+        font-weight: 500;
     }
     div.footer{
         display: flex;

@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 interface judgmentProps{
     judgment : JudgmentResponse;
     preview : boolean;
-    voteCount : number|undefined;
+    voteCount? : number;
 }
 const Judgment:React.FC<judgmentProps> = ({judgment,preview,voteCount}) => {
     const [totalVoteCount,setTotalVoteCount] = useState<number|undefined>(0);
@@ -20,6 +20,7 @@ const Judgment:React.FC<judgmentProps> = ({judgment,preview,voteCount}) => {
             setTotalVoteCount(judgment.voteCount);
         }
     },[voteCount])
+
   return (
     <div className={style.judgment}>
             <div className={style.author}>

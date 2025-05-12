@@ -15,3 +15,12 @@ span{
     font-size: 1rem;
     margin-bottom: 0.5rem;
 }
+
+#voteCancelContainer{
+    display: flex;
+    justify-content: end;
+    #voteCancelBtn{
+        margin-top: 1rem;
+        font-weight: 500;
+    }
+}

@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 import useBlame from '../../hooks/useBlame';
 
 const BlamePage = () => {
-    const { blameList ,initBlamelist ,getNextPage} = useBlame();
+    const { blameList ,initBlamelist ,getNextPage ,nextPage} = useBlame();
     const [creatOpen, setCreateOpen] = useState<boolean>(false);
     const [ref, inView] = useInView();
 
@@ -19,12 +19,11 @@ const BlamePage = () => {
     const modalCloseHandler = () => {
         setCreateOpen(false);
     }
-
     useEffect(() => {
         if (inView) {
             getNextPage();
         }
-    }, [inView]);
+    }, [,inView]);
 
     return (
         <div id={style.page}>
@@ -54,7 +53,7 @@ const BlamePage = () => {
                     </Modal>
                 )
             }
-            <div ref={ref} style={{height:"10px"}}></div>
+            <div ref={ref} style={{height:"20px"}}></div>
         </div>
     );
 }

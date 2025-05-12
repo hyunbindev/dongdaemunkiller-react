@@ -1,6 +1,8 @@
 import useCreatejudgment from '../../../hooks/useCreateJudgment';
 import style from './createJudgment.module.css'
 import JudgmentSelection from './selection/JudgmentSelection';
+import close from '../../../assets/close.svg'
+import { Link } from 'react-router-dom';
 const CreateJudgment = ()=>{
     const {selections, 
            selectionTitleHandler, 
@@ -14,9 +16,6 @@ const CreateJudgment = ()=>{
     return(
         <div id={style.createJudgment}>
             <h1>동대문 재판 시작하기</h1>
-            <div>
-                
-            </div>
             <div id={style.titleContainer}>
                 <label>재판 제목</label>
                 <input placeholder="재판 제목을 입력해 주세요." value={title} onChange={(e)=>setTitle(e.target.value)}></input>
@@ -34,8 +33,13 @@ const CreateJudgment = ()=>{
                     selections.map((selection,index)=>{return <JudgmentSelection selectionTitle={selection} index={index} selectionTitleHandler={selectionTitleHandler} deleteSelection={deleteSelection}/>})
                 }
             </div>
-            <button onClick={addSelection}>선택지 추가</button>
-            <button onClick={submitJudgment}>재판 시작</button>
+            <div id={style.btnContainer}>
+                <button id={style.addSelectionBtn} onClick={addSelection}>선택지 추가</button>
+                <button id={style.submitJudgmentBtn}onClick={submitJudgment}>재판 시작</button>
+            </div>
+            <Link to={'/judgment'}>
+                <img id={style.closeBtn} src={close}/>
+            </Link>
         </div>
     )
 }

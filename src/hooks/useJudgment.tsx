@@ -10,17 +10,30 @@ const useJudgment = () =>{
         api.get('/api/v1/judgment',{params:{page:0}})
         .then((res)=>{
             setJudgmentList(res.data.content.judgments);
-            setNextPage(false);
+            setNextPage(res.data.nextPage);
             setPage(0);
         })
         .catch((err)=>{
             console.error(err);
         })
     }
+    
+    const getNextPage = () =>{
+        if(nextPage){
+            api.get('/api/v1/judgment',{params:{page:page+1}})
+            .then((res)=>{
+                setJudgmentList((prevJudgmentList)=> [...prevJudgmentList, ...res.data.content.judgments])
+                setNextPage(res.data.nextPage);
+                setPage(page+1);
+            })
+            .catch((err)=>console.error(err));
+        }
+    }
+
     useEffect(()=>{
         initJudgmentlist();
     },[]);
 
-    return { judgmentList, initJudgmentlist }
+    return { judgmentList, initJudgmentlist, getNextPage }
 }
 export default useJudgment;
