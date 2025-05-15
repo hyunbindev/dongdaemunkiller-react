@@ -23,7 +23,7 @@ const JudgmentVoteSelection = ({judgmentId,setTotalVoteCount}:JudgmentVoteSelect
                 </div>
             }    
             <div id={style.voteCancelContainer}>
-                <div id={style.voteCancelBtn} onClick={()=>voteCancel(judgmentId)}>투표취소</div>
+                {voted && <div id={style.voteCancelBtn} onClick={()=>voteCancel(judgmentId)}>투표취소</div>}
             </div>
         </div>
     )

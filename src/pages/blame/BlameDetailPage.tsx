@@ -5,6 +5,7 @@ import BlameComment from "../../components/blame/BlameComment";
 import { useParams } from "react-router-dom";
 import useBlameDetail from "../../hooks/useBlameDetail";
 import { useInView } from "react-intersection-observer";
+import PostHeader from "../../components/common/header/PostHeader";
 const BlameDetailPage = () => {
     const [ref, inView] = useInView();
     const { blameId } = useParams<{blameId:string}>();
@@ -26,6 +27,8 @@ const BlameDetailPage = () => {
     }
 
     return(
+        <>
+            <PostHeader targetUrl={"/blame"} title={"다른 저격글 보기"}/>
         <div id={style.blameDetailPage}>
             {blame ? (<Blame blame={blame}/>):"저격글 가져오는중..."}
             <div className={style.blameComment}>
@@ -41,6 +44,7 @@ const BlameDetailPage = () => {
             }
             <div ref={ref} style={{height:"10px"}}></div>
         </div>
+        </>
     )
 }
 export default BlameDetailPage;

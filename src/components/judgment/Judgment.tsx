@@ -6,6 +6,7 @@ import { convertDate } from '../../utils/convertDate';
 import { JudgmentResponse } from '../../data/JudgmentInterface';
 import JudgmentVoteSelection from './voteSelection/JudgmentVoteSelection';
 import { useEffect, useState } from 'react';
+import KaKaoShared from '../../shared/kakaoShared';
 interface judgmentProps{
     judgment : JudgmentResponse;
     preview : boolean;
@@ -13,6 +14,7 @@ interface judgmentProps{
 }
 const Judgment:React.FC<judgmentProps> = ({judgment,preview,voteCount}) => {
     const [totalVoteCount,setTotalVoteCount] = useState<number|undefined>(0);
+    const {judgmentShare} = KaKaoShared()
     useEffect(()=>{
         if(voteCount){
             setTotalVoteCount(voteCount)
@@ -44,7 +46,7 @@ const Judgment:React.FC<judgmentProps> = ({judgment,preview,voteCount}) => {
                 <img src={vote} alt="vote" />
                 <div className={style.count}>{totalVoteCount}</div>
             </div>
-            <div className={style.share}>
+            <div className={style.share} onClick={()=>{judgmentShare(judgment)}}>
                 <img src={share} alt="share" />
             </div>
         </div>

@@ -7,6 +7,15 @@ const Auth = () => {
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
     const dispatch = useDispatch();
+    function getCookie(name:string) {
+      const cookies = document.cookie.split(';').map(c => c.trim());
+      for (let cookie of cookies) {
+        if (cookie.startsWith(`${name}=`)) {
+          return cookie.substring(name.length + 1);
+        }
+      }
+      return null;
+    } 
     useEffect(()=>{
         const accessToken = searchParams.get('accessToken');
         sessionStorage.setItem('accessToken', accessToken!);
@@ -18,6 +27,11 @@ const Auth = () => {
           })
           .then((response) => {
             dispatch(loginUser(response.data));
+          const savedPath = getCookie('redirectPath');
+          if (savedPath) {
+            navigate(savedPath);
+            return;
+          }
             navigate('/');
           })
           .catch((error) => {
@@ -25,6 +39,6 @@ const Auth = () => {
           });
         return;
     },[])
-    return(<>ss</>)
+    return(<>로그인 중...</>)
 }
 export default Auth;

@@ -11,6 +11,8 @@ import JudgmentPage from "../pages/judgment/JudgmentPage";
 import CreateJudgment from "../components/judgment/create/CreateJudgment";
 import JudgmentDetailPage from "../pages/judgment/JudgmentDetailPage";
 
+import footerStyle from './footer.module.css'
+import Footer from "../components/common/footer/Footer";
 const MainRouter = () => {
     const user = useSelector((state: any) => state.user);
     const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const MainRouter = () => {
     },[user]);
     
     return (
-        <>
+        <div style={{marginBottom:"5rem"}}>
         <Routes>
             <Route path="/" element={<Main />}/>
             <Route path="/judgment" element={<JudgmentPage />}/>
@@ -36,7 +38,8 @@ const MainRouter = () => {
             <Route path="/blame" element={<BlamePage/>}/>
             <Route path="/blame/:blameId" element={<BlameDetailPage/>}/>
         </Routes>
-        </>
+        <Footer/>
+        </div>
     );
 }
 export default MainRouter;

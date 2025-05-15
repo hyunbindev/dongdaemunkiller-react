@@ -10,7 +10,7 @@ const SherrifSummary = () => {
                 <div id={style.count}>00:00:00</div>
                 <div id={style.sheriffVote}>
                     투표하러 가기
-                    <img src={left_arrow} alt="long-arrow-right"/>
+                    <img src={left_arrow} alt="long-arrow-right" onClick={()=> alert('기능 구현 중')}/>
                 </div>
             </div>
         </div>

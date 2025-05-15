@@ -3,7 +3,7 @@ import style from '../commonPage.module.css'
 import Blame from '../../components/blame/Blame';
 import Modal from '../../components/modal/Modal';
 import CreateBlame from '../../components/blame/create/CreateBlame';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import useBlame from '../../hooks/useBlame';
 
@@ -18,7 +18,9 @@ const BlamePage = () => {
     
     const modalCloseHandler = () => {
         setCreateOpen(false);
+    
     }
+
     useEffect(() => {
         if (inView) {
             getNextPage();

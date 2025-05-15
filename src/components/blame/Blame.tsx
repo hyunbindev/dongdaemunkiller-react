@@ -3,7 +3,9 @@ import comment from '../../assets/comment.svg'
 import share from '../../assets/share.svg';
 import { BlameResponse } from '../../data/BlameInterface';
 import { convertDate } from '../../utils/convertDate';
+import KaKaoShared from '../../shared/kakaoShared';
 const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
+    const {blameShare} = KaKaoShared();
     return (
         <div className={style.blame}>
             <div className={style.author}>
@@ -21,7 +23,7 @@ const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
                     <img src={comment} alt="comment" />
                     <div className={style.comment_count}>{blame.commentsCount}</div>
                 </div>
-                <div className={style.share}>
+                <div className={style.share} onClick={() => blameShare(blame)}>
                     <img src={share} alt="share" />
                 </div>
             </div>
