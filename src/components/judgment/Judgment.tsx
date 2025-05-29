@@ -42,7 +42,7 @@ const Judgment:React.FC<judgmentProps> = ({judgment,preview,voteCount}) => {
             <div className={style.comment}>
                 <img src={comment} alt="comment" />
                 {/** 덧글 수*/}
-                <div className={style.count}>0</div>
+                <div className={style.count}>{judgment.commentCount}</div>
                 <img src={vote} alt="vote" />
                 <div className={style.count}>{totalVoteCount}</div>
             </div>

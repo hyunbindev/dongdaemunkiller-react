@@ -1,8 +1,9 @@
 import { BlameCommentResponse } from '../../data/BlameInterface';
+import { JudgmentCommentResponse } from '../../data/JudgmentInterface';
 import { convertDate } from '../../utils/convertDate';
-import style from './blameComment.module.css';
+import style from './judgmentComment.module.css';
 
-const BlameComment:React.FC<{comment:BlameCommentResponse}> = ({comment}) => {
+const JudgmentComment:React.FC<{comment:JudgmentCommentResponse}> = ({comment}) => {
     return (
         <div className={style.blameComment}>
             <div className={style.blameCommentHeader}>
@@ -16,4 +17,4 @@ const BlameComment:React.FC<{comment:BlameCommentResponse}> = ({comment}) => {
         </div>
     );
 }
-export default BlameComment;
+export default JudgmentComment;

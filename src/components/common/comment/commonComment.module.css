@@ -1,0 +1,45 @@
+div.commonComment {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background-color: white;
+  div#commentInputContainer{
+    display: flex;
+    flex-direction: row;
+    margin: 0.2rem;
+    padding: 0.5rem;
+    
+    border-radius: 1rem;
+    display: flex;
+    box-sizing: border-box;
+    textarea{
+        padding: 0;
+        flex-grow: 1;
+        border: none;
+        background-color: #ffffff00;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        outline: none;
+        resize: none;
+    }
+    div#buttonContainer{
+        position: relative;
+        width: 1.8rem;
+        img#send{
+            position: absolute;
+            right: 0;
+            bottom: -2px;
+            width: 1.8rem;
+            height: 1.8rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+        }
+    }
+  }
+  div#commentInputContainer.disabled{
+    border: 2px solid #ccc;
+  }
+  div#commentInputContainer.abled{
+    border: 2px solid #09A573;
+  }
+}

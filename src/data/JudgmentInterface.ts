@@ -21,3 +21,10 @@ export interface JudgmentVoteCountResponse{
     voteCount : number,
     voted : boolean
 }
+
+export interface JudgmentCommentResponse{
+    id : string,
+    author : MemberSimple,
+    text : string,
+    createdAt : string
+}

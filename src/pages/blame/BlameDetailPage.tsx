@@ -6,11 +6,12 @@ import { useParams } from "react-router-dom";
 import useBlameDetail from "../../hooks/useBlameDetail";
 import { useInView } from "react-intersection-observer";
 import PostHeader from "../../components/common/header/PostHeader";
+import CommonComment from "../../components/common/comment/CommonComment";
 const BlameDetailPage = () => {
     const [ref, inView] = useInView();
     const { blameId } = useParams<{blameId:string}>();
     const { blame, comments, getBlame, getBlameComments , postNewBlameComment , getNextPage} = useBlameDetail(blameId || "");
-    const [newComment, setNewComment] = useState<string>("");
+    const [commentNodes, setCommentNodes] = useState<React.ReactNode[]>([]);
 
     useEffect(()=>{
         getBlame();
@@ -22,26 +23,19 @@ const BlameDetailPage = () => {
             getNextPage();
         }
     },[inView]);
-    const handleCommentChange = (e:React.ChangeEvent<HTMLTextAreaElement>) => {
-        setNewComment(e.target.value);
-    }
+
+    useEffect(()=>{
+        setCommentNodes(comments.map((comment, index) => {
+            return <BlameComment key={index} comment={comment}/>
+        }));
+    },[comments]);
 
     return(
         <>
             <PostHeader targetUrl={"/blame"} title={"다른 저격글 보기"}/>
         <div id={style.blameDetailPage}>
             {blame ? (<Blame blame={blame}/>):"저격글 가져오는중..."}
-            <div className={style.blameComment}>
-                <textarea placeholder="덧글을 입력해주세요." value={newComment} onChange={handleCommentChange}></textarea>
-                <div id={style.submit} onClick={()=>{postNewBlameComment(newComment);setNewComment("")}}>등록</div>
-            </div>
-            {
-                comments.map((comment, index) => {
-                    return (
-                        <BlameComment key={index} comment={comment}/>
-                    );
-                })
-            }
+            <CommonComment onCommentSubmit={postNewBlameComment} commentNodes={commentNodes}/>
             <div ref={ref} style={{height:"10px"}}></div>
         </div>
         </>

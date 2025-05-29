@@ -34,6 +34,7 @@ img.profile{
     border-radius: 5px;
     .targetElementContainer{
         display: flex;
+        justify-content: space-around;
         .targetElement{
             margin: 0.3rem;
             display: flex;
