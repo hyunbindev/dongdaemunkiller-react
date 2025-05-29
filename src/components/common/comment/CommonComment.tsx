@@ -1,4 +1,4 @@
-import style from './CommonComment.module.css';
+import style from './commonComment.module.css';
 import send_disabled from '../../../assets/send_disable.svg'
 import send_abled from '../../../assets/send_able.svg'
 import React, { useMemo, useRef, useState } from 'react';
