@@ -16,7 +16,7 @@ const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
                 </div>
             </div>
             {
-                blame.target && 
+                blame.target?.uuid && 
                 <div  className={style.target}>
                     <p>저격 피해자</p>
                     <div className={style.targetElementContainer}>
