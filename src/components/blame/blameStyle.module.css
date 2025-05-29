@@ -10,16 +10,52 @@
     display: flex;
     align-items: center;
     color: rgb(59, 59, 59);
-    img{
-        width: 2rem;
-        height: 2rem;
-        border-radius: 50%;
-        margin-right: 0.5rem;
-    }
+
     .author_desc{
         width: 100%;
         display: flex;
         justify-content: space-between;
+    }
+}
+img.profile{
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    margin-right: 0.5rem;
+    object-fit: cover;
+}
+
+.target{
+    display: flex;
+    flex-direction: column;
+    margin: 0.5rem;
+    border: solid 1px rgba(0, 0, 0, 0.13);
+    padding: 0.3rem;
+    border-radius: 5px;
+    .targetElementContainer{
+        display: flex;
+        .targetElement{
+            margin: 0.3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            img.profile{
+                margin: 0px;
+            }
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        background-color: white;
+        border-radius: 5px;
+        box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.068);
+        color: rgb(59, 59, 59);
+        font-size: 0.8rem;
+        }
+    }
+    p{
+        margin: 0px;
+        margin-left:0.3rem;
+        font-weight: 600;
+        color: rgb(39, 39, 39);
     }
 }
 

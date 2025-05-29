@@ -9,12 +9,24 @@ const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
     return (
         <div className={style.blame}>
             <div className={style.author}>
-                <img src={blame.author.profile}></img>
+                <img className={style.profile} src={blame.author.profile}></img>
                 <div className={style.author_desc}>
                     <div className={style.name}>{blame.author.name}</div>
                     <div className={style.createdAt}>{convertDate(blame.createdAt)}</div>
                 </div>
             </div>
+            {
+                blame.targeted && 
+                <div  className={style.target}>
+                    <p>저격 피해자</p>
+                    <div className={style.targetElementContainer}>
+                        <div className={style.targetElement}>
+                            <img className={style.profile} src={blame.target?.profile} alt="target profile" />
+                            <div className={style.target_name}>{blame.target?.name}</div>
+                        </div>
+                    </div>
+                </div>
+            }
             <div className={style.text}>
                 {blame.text}
             </div>

@@ -14,11 +14,11 @@
     box-sizing: border-box;
     .element{
         img.icon{
-            width: 2.5rem;
+            width: 2rem;
         }
         display: flex;
         flex-direction: column;
-        padding:0.5rem;
+        padding:0.2rem;
         font-size: 0.8rem;
         text-align: center;
     }
