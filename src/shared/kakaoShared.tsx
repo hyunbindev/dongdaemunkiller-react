@@ -12,11 +12,22 @@ const KaKaoShared = ()=>{
     const HOST_URL = import.meta.env.VITE_CLIENT_HOST
 
     const blameShare = (blame:BlameResponse) => {
+        let title;
+        let description;
+        if(blame.targets.length > 0) {
+            const targetNames = blame.targets.map(target => target.name).join(', ');
+            title = `${targetNames}님이 저격당했어요!!`;
+            description = `${targetNames}님의 저격글을 확인해 보세요!!`;
+        } else {
+            title = `${blame.author.name}님이 전체공개로 저격했어요!!`;
+            description = `${blame.author.name}님이 상남자답게 작성한 저격글을 확인해 보세요!!`;
+        }
         window.Kakao.Link.sendDefault({
             objectType: 'feed',
+
             content: {
-                title: `${blame.target ? blame.target?.name+'님이 저격당했어요!!' : blame.author.name+'님이 전체공개로 저격했어요!!'}`,
-                description: `${blame.target ? blame.target?.name+'님의 저격글을 확인해 보세요!!' : blame.author.name+'님이 상남자답게 작성한 저격글을 확인해 보세요!!'}`,
+                title: title,
+                description: description,
                 imageUrl: ``,
                 link: {
                     mobileWebUrl: `${HOST_URL}/blame/${blame.id}`,
