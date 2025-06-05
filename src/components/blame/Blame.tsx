@@ -16,15 +16,19 @@ const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
                 </div>
             </div>
             {
-                blame.target?.uuid && 
+                blame.targets.length > 0 && 
                 <div  className={style.target}>
                     <p>저격 피해자</p>
-                    <div className={style.targetElementContainer}>
-                        <div className={style.targetElement}>
-                            <img className={style.profile} src={blame.target?.profile} alt="target profile" />
-                            <div className={style.target_name}>{blame.target?.name}</div>
-                        </div>
-                    </div>
+                    {
+                        blame.targets.map((target, index) => (
+                            <div key={index} className={style.targetElementContainer}>
+                                <div className={style.targetElement}>
+                                    <img className={style.profile} src={target.profile} alt="target profile" />
+                                    <div className={style.target_name}>{target.name}</div>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             }
             <div className={style.text}>

@@ -5,6 +5,8 @@ import api from '../../../shared/api';
 import { useSelector } from 'react-redux';
 import EditBlame from './EditBlame';
 import SelectMember from './SelectMember';
+import { MemberSimple } from '../../../data/MemberInterface';
+import { useNavigate } from 'react-router-dom';
 
 interface CreateBlameProps{
     closeFunc:()=>void;
@@ -12,13 +14,14 @@ interface CreateBlameProps{
 }
 
 const CreateBlame:React.FC<CreateBlameProps> = ({closeFunc , refreshBlame}) => {
+    const navigate = useNavigate();
     const user = useSelector((state: any) => state.user);
-
+    const [selectedMember, setSelectedMember] = useState<MemberSimple[]>([]);
     const [blame, setBlame] = useState<BlameRequest>(
         {
             authorUuid: 'uuid',
             title: 'title',
-            targetUuid: undefined,
+            targetUuids: [],
             content: ''
         }
     );
@@ -34,31 +37,25 @@ const CreateBlame:React.FC<CreateBlameProps> = ({closeFunc , refreshBlame}) => {
             case 0:
                 return <EditBlame user={user} onChangeHandler={onChangeHandler} setPhase={setPhase} blameRequest={blame}/>
             case 1:
-                return <SelectMember setPhase={setPhase} blameRequest={blame} submitHandler={submitHandler}/>
+                return <SelectMember setPhase={setPhase}
+                        blameRequest={blame}
+                        submitHandler={submitHandler}
+                        selectedMember={selectedMember}
+                        setSelectedMember={setSelectedMember}/>
             default:
                 return;
         }
     }
 
-    const submitHandler = (targetUuid?: string) => {
-        if (blame.content.trim().length < 1) {
-            alert('저격글을 작성해주세요.');
-            return;
-        }
-
-        const payload = targetUuid && targetUuid.trim().length > 0
-            ? { ...blame, targetUuid: targetUuid }
-            : blame;
-    
-        api.post('/api/v1/blame', payload)
-            .then((res: any) => {
-                console.log(res.data);
-                refreshBlame();
-                closeFunc();
-            })
-            .catch((err: any) => {
-                console.error(err);
-            });
+    const submitHandler = () => {
+        api.post('/api/v1/blame', {"authorUuid": user.uuid, "title": blame.title, "targetUuids": selectedMember.map((m) => m.uuid), "content": blame.content})
+        .then((res: any) => {
+            refreshBlame();
+            closeFunc();
+        })
+        .catch((err: any) => {
+            console.error(err);
+        });
     };
 
 

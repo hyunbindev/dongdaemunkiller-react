@@ -7,6 +7,7 @@ import useBlameDetail from "../../hooks/useBlameDetail";
 import { useInView } from "react-intersection-observer";
 import PostHeader from "../../components/common/header/PostHeader";
 import CommonComment from "../../components/common/comment/CommonComment";
+
 const BlameDetailPage = () => {
     const [ref, inView] = useInView();
     const { blameId } = useParams<{blameId:string}>();
@@ -17,7 +18,6 @@ const BlameDetailPage = () => {
         getBlame();
         getBlameComments(0);
     },[]);
-    
     useEffect(()=>{
         if (inView){
             getNextPage();
@@ -31,14 +31,14 @@ const BlameDetailPage = () => {
     },[comments]);
 
     return(
-        <>
+        <div onClick={(e => e.stopPropagation())}>
             <PostHeader targetUrl={"/blame"} title={"다른 저격글 보기"}/>
         <div id={style.blameDetailPage}>
-            {blame ? (<Blame blame={blame}/>):"저격글 가져오는중..."}
+            {blame ? (<Blame blame={blame}/>): "저격글 가져오는중..."}
             <CommonComment onCommentSubmit={postNewBlameComment} commentNodes={commentNodes}/>
             <div ref={ref} style={{height:"10px"}}></div>
         </div>
-        </>
+        </div>
     )
 }
 export default BlameDetailPage;

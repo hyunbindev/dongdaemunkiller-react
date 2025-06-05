@@ -8,7 +8,8 @@ const Auth = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     // 쿠키에서 redirectPath를 가져오는 함수
-    // 오류 추정으로 인하여 deprecate
+
+    // 오류 추정으로 인하여 deprecated
     function getCookie(name:string) {
       const cookies = document.cookie.split(';').map(c => c.trim());
       for (let cookie of cookies) {
@@ -18,6 +19,7 @@ const Auth = () => {
       }
       return null;
     }
+    
     // sessionStrage 이용하여 브라우저 닫을 시 초기화 하는 방향
     function getRedirectPathFromSessionStorage(uri:string) {
       const path = sessionStorage.getItem('redirectPath');

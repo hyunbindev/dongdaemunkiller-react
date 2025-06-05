@@ -11,7 +11,6 @@ function App() {
 
   useEffect(() => {
     const token = sessionStorage.getItem('accessToken');
-    console.log(token)
     if (token) {
       setIsLogin(true);
     } else {

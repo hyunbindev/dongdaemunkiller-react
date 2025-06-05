@@ -8,15 +8,8 @@ interface BlameTargetMemberProps{
 }
 
 const BlameTargetMember:React.FC<BlameTargetMemberProps> = ({member, submitHandler})=>{
-    const userUuid = useSelector((state: any) => state.user.uuid);
+    
     const confirmTarget = () => {
-        if(member?.uuid === userUuid){
-            alert("자기 자신을 저격할 수 없습니다.");
-            return;
-        }
-        if(confirm(`${member?.name}님을 저격하시겠습니까?`)){
-            submitHandler(member?.uuid);
-        }
         return;
     }
 

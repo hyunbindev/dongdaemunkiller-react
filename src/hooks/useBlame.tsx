@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import { BlameResponse } from "../data/BlameInterface";
 import api from "../shared/api";
+import { logoutUser } from '../store/slice/userSlice';
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const useBlame = () =>{
     const [blameList, setBlameList] = useState<BlameResponse[]>([]);
     const [page, setPage] = useState<number>(0);
     const [nextPage, setNextPage] = useState<boolean>(false);
     
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const initBlamelist = ()=>{
         api.get('/api/v1/blame',{params:{page:0}})
         .then((res)=>{
@@ -15,8 +20,14 @@ const useBlame = () =>{
             setPage(0);
             setNextPage(res.data.nextPage);
         })
-        .catch((err)=>{
-            console.log(err);
+        .catch((error)=>{
+            if(error.response.status==401){
+                console.error("로그인 만료");
+                alert("재 로그인이 필요합니다.");
+                dispatch(logoutUser());
+                sessionStorage.removeItem('accessToken');
+                navigate('/');
+            }
         });
     }
 
@@ -24,6 +35,7 @@ const useBlame = () =>{
         if(nextPage){
             api.get('/api/v1/blame',{params:{page:page+1}})
             .then((res)=>{
+            console.log(res.data);
                 setBlameList((prevBlameList) => [...prevBlameList, ...res.data.content.blames]);
                 setNextPage(res.data.nextPage);
                 setPage(page+1);

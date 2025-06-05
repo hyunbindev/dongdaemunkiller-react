@@ -10,4 +10,4 @@ const RedirectionAuth = () => {
     },[])
     return<>리다이렉션중...</>
 }
-export default RedirectionAuth
+export default RedirectionAuth;

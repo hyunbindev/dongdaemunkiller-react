@@ -5,7 +5,7 @@ export interface BlameResponse{
     id : string,
     title : string,
     author : MemberSimple,
-    target : MemberSimple | undefined,
+    targets : MemberSimple[],
     text : string,
     createdAt : string,
     commentsCount : number
@@ -15,7 +15,7 @@ export interface BlameResponse{
 export interface BlameRequest{
     authorUuid : string,
     title: string,
-    targetUuid : string| undefined,
+    targetUuids : string[],
     content : string
 }
 export interface BlameCommentRequest{

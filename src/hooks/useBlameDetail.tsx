@@ -15,7 +15,7 @@ const useBlameDetail = (blameId:string) => {
                 setBlame(response.data)
             })
             .catch((error) => {
-                console.error('Error fetching blame data:', error);
+                console.log(error.response.status+"+@@@@@@@@@@");
             }
         );
     }
