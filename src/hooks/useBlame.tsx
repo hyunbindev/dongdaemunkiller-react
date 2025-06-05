@@ -35,7 +35,6 @@ const useBlame = () =>{
         if(nextPage){
             api.get('/api/v1/blame',{params:{page:page+1}})
             .then((res)=>{
-            console.log(res.data);
                 setBlameList((prevBlameList) => [...prevBlameList, ...res.data.content.blames]);
                 setNextPage(res.data.nextPage);
                 setPage(page+1);
