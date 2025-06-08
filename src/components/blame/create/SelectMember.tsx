@@ -33,16 +33,14 @@ const SelectMember:React.FC<SelectMemberProps> =({setPhase,blameRequest,submitHa
     };
 
     const handleAddTarget = (target:MemberSimple):void => {
-        /**if(target.uuid === userUuid){
+        if(target.uuid === userUuid){
             alert('자신을 저격할 수 없습니다.');
             return;
-        }**/
-       /**
+        }
         if(selectedMember.some((m) => m.uuid === target.uuid)){
             alert('이미 선택된 대상입니다.');
             return;
         }
-        */
         setSelectedMember(prev => [...prev, target]);
         return
     }
