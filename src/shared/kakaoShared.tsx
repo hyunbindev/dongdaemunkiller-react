@@ -14,7 +14,7 @@ const KaKaoShared = ()=>{
     const blameShare = (blame:BlameResponse) => {
         let title;
         let description;
-        if(blame.targets.length > 0) {
+        if(blame.targets !== null && blame.targets.length > 0) {
             const targetNames = blame.targets.map(target => target.name).join(', ');
             title = `${targetNames}님이 저격당했어요!!`;
             description = `${targetNames}님의 저격글을 확인해 보세요!!`;
@@ -24,7 +24,6 @@ const KaKaoShared = ()=>{
         }
         window.Kakao.Link.sendDefault({
             objectType: 'feed',
-
             content: {
                 title: title,
                 description: description,
