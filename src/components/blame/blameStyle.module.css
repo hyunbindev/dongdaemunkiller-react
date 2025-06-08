@@ -35,9 +35,10 @@ img.profile{
     .targetElementContainer{
         display: flex;
         justify-content: space-around;
+        overflow-y: auto;
         .targetElement{
+            flex: 0 0 auto;
             margin: 0.3rem;
-            display: flex;
             flex-direction: column;
             align-items: center;
             img.profile{
