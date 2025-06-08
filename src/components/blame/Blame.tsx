@@ -25,7 +25,7 @@ const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
                             <div key={index} className={style.targetElement}>
                                 <img className={style.profile} src={target.profile} alt="target profile" />
                                 <div className={style.target_name}>{target.name}</div>
-                            </div>     
+                            </div> 
                         ))
                      }
                     </div>

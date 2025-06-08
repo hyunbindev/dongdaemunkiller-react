@@ -35,7 +35,7 @@ img.profile{
     .targetElementContainer{
         display: flex;
         justify-content: space-around;
-        overflow-y: auto;
+        overflow-x: auto;
         .targetElement{
             flex: 0 0 auto;
             margin: 0.3rem;
