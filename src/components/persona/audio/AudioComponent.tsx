@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import style from './AudioComponent.module.css';
+import style from './audioComponent.module.css';
 import play_icon from '../../../assets/dark/play_dark.svg';
 import pause_icon from '../../../assets/dark/pause_dark.svg';
 interface AudioComponentProps {
