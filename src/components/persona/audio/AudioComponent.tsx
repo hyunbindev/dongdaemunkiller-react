@@ -42,7 +42,7 @@ const AudioComponent:React.FC<AudioComponentProps> = ({objectURL}) => {
             audioRef.current.currentTime = 0;
         } 
     });
-
+    console.log(objectURL);
     return () => {
         audio.removeEventListener("timeupdate", updateTime);
         audio.removeEventListener("loadedmetadata", updateTime);
