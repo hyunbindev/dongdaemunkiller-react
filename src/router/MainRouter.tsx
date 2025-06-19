@@ -6,13 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { loginUser, UserState } from "../store/slice/userSlice";
 import api from "../shared/api";
-import PicturePage from "../pages/pictures/PicturePage";
 import JudgmentPage from "../pages/judgment/JudgmentPage";
 import CreateJudgment from "../components/judgment/create/CreateJudgment";
 import JudgmentDetailPage from "../pages/judgment/JudgmentDetailPage";
 
-import footerStyle from './footer.module.css'
 import Footer from "../components/common/footer/Footer";
+import PersonaPage from "../pages/persona/PersonaPage";
+import CreatePersona from "../components/persona/create/CreatePersona";
 const MainRouter = () => {
     const user = useSelector((state: any) => state.user);
     const dispatch = useDispatch();
@@ -37,6 +37,8 @@ const MainRouter = () => {
             <Route path="/judgment/create" element={<CreateJudgment/>}/>
             <Route path="/blame" element={<BlamePage/>}/>
             <Route path="/blame/:blameId" element={<BlameDetailPage/>}/>
+            <Route path="/persona" element={<PersonaPage/>}/>
+            <Route path="/persona/create" element={<CreatePersona/>}/>
         </Routes>
         <Footer/>
         </div>

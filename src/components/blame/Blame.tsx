@@ -7,7 +7,6 @@ import KaKaoShared from '../../shared/kakaoShared';
 import { useEffect } from 'react';
 const Blame:React.FC<{blame:BlameResponse}> = ({blame}) => {
     const {blameShare} = KaKaoShared();
-    useEffect(() => {console.log(blame)}, []);
     return (
         <div className={style.blame}>
             <div className={style.author}>

@@ -1,0 +1,32 @@
+div.audioContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0.5rem 0;
+    img.controlBtn{
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-right: 0.2rem;
+        color: #453f4b
+    }
+    .canvasContainer{
+        display: flex;
+        align-items: center;
+        position: relative;
+        canvas.progress{
+            flex-grow: 1;
+            max-height: 2rem;
+        }
+        div.currentTime{
+            position: absolute;
+            top: 0;
+            left: 0.5rem;
+        }
+        div.endTime{
+            position: absolute;
+            top: 0;
+            right: 0.5rem;
+        }
+    }
+}

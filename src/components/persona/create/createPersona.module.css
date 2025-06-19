@@ -1,0 +1,96 @@
+div#createPersonaContainer {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0px;
+    left: 0px;
+    color: white;
+    background-color: #161618;
+    #header{
+        display: flex;
+        align-items: center;
+        background-color: #211F21;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        img{
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+    #content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        padding: 1rem;
+        gap: 1rem;
+    }
+    #recordBtn{
+        border-radius: 50%;
+        width: 7rem;
+        height: 7rem;
+        background-color: rgb(255, 255, 255);
+        img{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    #recordBtn.recording{
+        box-shadow: 
+            0 0 20px rgba(255, 0, 0, 0.6),
+            0 0 40px rgba(255, 0, 0, 0.4),
+            0 0 60px rgba(255, 0, 0, 0.2);
+    }
+    #recordBtn.waiting{
+        box-shadow: 
+            0 0 20px rgba(155, 89, 182, 0.6),
+            0 0 40px rgba(155, 89, 182, 0.4),
+            0 0 60px rgba(115, 25, 151, 0.2);
+    }
+    #voiceEffectContainer{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        button{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+        }
+        button.selected{
+            background-color: rgb(167, 105, 226);
+                    box-shadow: 
+                    0 0 20px rgba(155, 89, 182, 0.6),
+                    0 0 40px rgba(155, 89, 182, 0.4),
+                    0 0 60px rgba(115, 25, 151, 0.2);
+        }
+        button.unSelected{
+            background-color: white;
+        }
+    }
+    div#submit{
+        background: linear-gradient(-45deg,#1e1e2f,#5643fa,#00c3ff,#ec38bc);
+        background-size: 600% 600%;
+        animation: gradientFlow 5s ease infinite;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 10rem;
+        margin-top: 2rem;
+    }
+}
+@keyframes gradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

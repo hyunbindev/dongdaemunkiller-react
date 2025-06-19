@@ -8,11 +8,15 @@
 :root {
 
 }
+html {
+  background-color: #EAEEF3;
+  transition: background-color 0.4s ease-in-out;
+}
 
 body {
   color:rgb(24, 24, 24);
   margin: 0;
-  background-color: #EAEEF3;
+  transition: background-color 0.4s ease-in-out;
 }
 a{
   text-decoration: none;
