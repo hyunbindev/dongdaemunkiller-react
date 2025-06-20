@@ -17,9 +17,11 @@ export const useRecordPersona = () => {
       };
 
       mediaRecorderRef.current.onstop = () => {
-        const blob = new Blob(audioChunks.current, { type: 'audio/webm' });
+        const blob = new Blob(audioChunks.current, { type: 'audio/mp4' });
         const url = URL.createObjectURL(blob);
         setAudioURL(url);
+        console.log('녹음 완료:', url);
+        console.log('녹음된 Blob:', blob);
         audioChunks.current = [];
       };
 

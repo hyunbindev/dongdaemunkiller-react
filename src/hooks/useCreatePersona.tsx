@@ -8,7 +8,7 @@ const useCreatePersona = () =>{
             alert('바둑봇이 목소리를 변환하지 못했습니다. 다시 시도해 주세요.');
             return;
         }
-        const file = new File([voice], 'voice-file', { type: 'audio/webm' });
+        const file = new File([voice], 'voice-file', { type: voice.type });
         const formData = new FormData();
         formData.append('voice-file', file);
         api.post('/api/v1/persona', formData,{headers: {
