@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { JudgmentResponse } from "../data/JudgmentInterface";
 import { BlameResponse } from "../data/BlameInterface";
+import { PersonaResponse } from "../data/PersonaInterface";
 
 const KaKaoShared = ()=>{
     useEffect(()=>{
@@ -68,6 +69,29 @@ const KaKaoShared = ()=>{
             ],
         });
     }
-    return {blameShare , judgmentShare}
+    const personaShare = (persona:PersonaResponse) => {
+        window.Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: `누군가 페르소나를 올렸어요!!`,
+                description: `페르소나의 진짜 작성자를 맞춰보세요!`,
+                imageUrl: ``,
+                link: {
+                    mobileWebUrl: `${HOST_URL}/persona/${persona.personaId}`,
+                    webUrl: `${HOST_URL}/judgment/${persona.personaId}`,
+                },
+            },
+            buttons: [
+                {
+                    title: '페르소나 확인하고 작성자 맞추기',
+                    link: {
+                        mobileWebUrl: `${HOST_URL}/persona/${persona.personaId}`,
+                        webUrl: `${HOST_URL}/persona/${persona.personaId}`,
+                    },
+                },
+            ],
+        });
+    }
+    return {blameShare , judgmentShare ,personaShare}
 }
 export default KaKaoShared;

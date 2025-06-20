@@ -8,6 +8,7 @@ div#createPersonaContainer {
     left: 0px;
     color: white;
     background-color: #161618;
+    box-sizing: border-box;
     #header{
         display: flex;
         align-items: center;

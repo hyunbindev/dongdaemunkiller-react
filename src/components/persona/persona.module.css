@@ -2,7 +2,6 @@
     background-color: #211F21;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    margin-bottom: 1rem;
     .personaHeader{
         display:flex;
         flex-direction: row;

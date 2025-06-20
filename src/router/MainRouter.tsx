@@ -13,6 +13,7 @@ import JudgmentDetailPage from "../pages/judgment/JudgmentDetailPage";
 import Footer from "../components/common/footer/Footer";
 import PersonaPage from "../pages/persona/PersonaPage";
 import CreatePersona from "../components/persona/create/CreatePersona";
+import PersonaDetailPage from "../pages/persona/detail/PersonaDetailPage";
 const MainRouter = () => {
     const user = useSelector((state: any) => state.user);
     const dispatch = useDispatch();
@@ -38,7 +39,9 @@ const MainRouter = () => {
             <Route path="/blame" element={<BlamePage/>}/>
             <Route path="/blame/:blameId" element={<BlameDetailPage/>}/>
             <Route path="/persona" element={<PersonaPage/>}/>
+            <Route path="/persona/:personaId" element={<PersonaDetailPage/>}/>
             <Route path="/persona/create" element={<CreatePersona/>}/>
+            
         </Routes>
         <Footer/>
         </div>

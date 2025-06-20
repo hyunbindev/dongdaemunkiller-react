@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { use, useEffect } from 'react';
 import style from './personaPage.module.css';
 import { useDispatch } from 'react-redux';
 import { setDark, setLight } from '../../store/slice/themeSlice';
@@ -7,9 +7,11 @@ import Persona from '../../components/persona/Persona';
 import CreatePersonaBtn from '../../components/persona/CreatePersonaBtn';
 import usePersona from '../../hooks/usePersona';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 const PersonaPage = () => {
     const dispatch = useDispatch();
     const [ref, inView] = useInView();
+    const navigate = useNavigate();
     useEffect(() => {
         dispatch(setDark()); // 테마를 다크로 전환
         return () => {
@@ -40,7 +42,9 @@ const PersonaPage = () => {
                 {
                     personaList.length > 0 ? (
                         personaList.map((persona) => (
-                            <Persona key={persona.personaId} persona={persona} />
+                            <div onClick={()=>{navigate(`/persona/${persona.personaId}`);}} key={persona.personaId} className={style.personaElement} style={{marginBottom:"1rem"}}>
+                                <Persona key={persona.personaId} persona={persona} />
+                            </div>
                         ))
                     ) : (
                         <div className={style.noPersona}>페르소나가 없습니다. 새로운 페르소나를 만들어보세요.</div>

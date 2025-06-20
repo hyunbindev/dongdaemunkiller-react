@@ -60,7 +60,7 @@ const CreatePersona = ()=>{
                     <button onClick={()=>{playWithRadioEffect();setSelectedKey(4);}} key={4}className={selectedKey == 4 ? style.selected : ''}><img src={voice_icon}/></button>
                 </div>                
             )}
-            { !isProcessed && audioURL && (<div>위버튼을 눌러 바둑봇이 목소리를 변환해 주세요.</div>)}
+            { !isProcessed && audioURL && (<div>위버튼을 눌러 바둑봇이 목소리를 변환하게 주세요.</div>)}
             { isProcessed && audioURL && (<div id={style.submit} onClick={()=>submitPersona(processedBlobRef.current)}>페르소나 만들기</div>)}
         </div>
     </div>)
