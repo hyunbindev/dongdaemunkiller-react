@@ -94,7 +94,7 @@ const AudioComponent:React.FC<AudioComponentProps> = ({objectURL}) => {
     return (
         <>
         <audio ref={audioRef} style={{display: 'none'}} controls>
-            <source src={objectURL} type="audio/webm" />
+            <source src={objectURL}/>
         </audio>
         <div className={style.audioContainer}>
             <img onClick={(e)=>{playAudio(); e.stopPropagation();}} className={style.controlBtn} src={isPlaying ? pause_icon:play_icon}/>
