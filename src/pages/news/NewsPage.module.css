@@ -1,0 +1,50 @@
+div#newsPage {
+    background-image: url('../../assets/pattern/paper_pattern_back.webp');
+    background-repeat: repeat;
+}
+
+div#header{
+    padding:1rem;
+    h1{
+        font-family: "Great Vibes", cursive !important;
+        font-weight: 800;
+        font-style: normal;
+        margin: 0px;
+        font-size: 2rem;
+        text-align: center;
+    }
+    h2{
+        color: rgb(116, 116, 116);
+        margin: 0px;
+        font-family: "Great Vibes", cursive !important;
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+
+div#carousel{
+    margin:1rem 0;
+    position:sticky;
+    top:0px;
+    z-index: 1;
+}
+
+div#list{
+    background-image: url('../../assets/pattern/paper_pattern_list.png');
+    background-repeat: repeat;
+    position: relative;
+    padding:0rem 1rem;
+    padding-top: 0.5rem;
+    z-index: 2;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    h2#listTitle{
+        background-color: rgba(0, 0, 0, 0.589);
+        text-align: center;
+        font-family: 'Gowun Dodum', sans-serif;
+        margin: 1rem 0rem;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color:white
+    }
+}

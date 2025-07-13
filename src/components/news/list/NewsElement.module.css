@@ -1,0 +1,32 @@
+div.NewsElement{
+    padding:0.5rem;
+    display: flex;
+    margin-bottom: 1rem;
+    img.thumb{
+        width: 4rem;
+        height: 3.5rem;
+        border-radius: 0.2rem;   
+    }
+    div.text{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        padding:0 0.5rem;
+        h2.title{
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 1rem;
+            margin:0px;
+        }
+        div.info , div.info *{
+            font-family: 'Gowun Dodum', sans-serif;
+            display: flex;
+            justify-content: space-between;
+            img.profile{
+                width: 1.5rem;
+                height: 1.5rem;
+                border-radius: 50%;
+            }
+        }
+    }
+}

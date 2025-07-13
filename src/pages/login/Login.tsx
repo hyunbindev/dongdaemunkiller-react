@@ -5,8 +5,8 @@ const Login = () => {
         <div id={loginStyle.login}>
             <h1>동대문 Friends</h1>
             {/* <a href="http://218.39.156.143/oauth2/authorization/kakao">동대문 Killer 시작하기</a> */}
-            {/*<a id={loginStyle.start} href={`${import.meta.env.VITE_API_HOST}/api/oauth2/authorization/kakao`}>동대문 Killer 시작하기</a>*/}
-            <a id={loginStyle.start} href={`/api/oauth2/authorization/kakao`}>동대문 Friends 시작하기</a>
+            <a id={loginStyle.start} href={`${import.meta.env.VITE_API_HOST}/api/oauth2/authorization/kakao`}>동대문 Killer 시작하기</a>
+            {/*<a id={loginStyle.start} href={`/api/oauth2/authorization/kakao`}>동대문 Friends 시작하기</a>*/}
             <p>
                 나의 소중한 동대문 친구들을 위해 준비했습니다.<br/>
                 이 웹 서비스는 오직 동대문이라는 특별한 공간과 그곳의 사람들을 위한 맞춤형 플랫폼입니다.<br/>

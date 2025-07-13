@@ -1,0 +1,27 @@
+.topic-carousel .swiper-slide {
+  transform: scale(0.9);        /* 기본 크기 줄이기 */
+  transition: transform 0.3s ease;
+  filter: brightness(0.8);      /* 약간 어둡게 (선택사항) */
+}
+
+.topic-carousel .swiper-slide-active {
+  transform: scale(1);          /* 가운데 슬라이드만 원래 크기 */
+  filter: brightness(1);
+  z-index: 2;
+}
+
+.swiper-pagination-bullet {
+  width: 6px !important;
+  height: 6px !important;
+  background-color: #ffffff !important;
+  border-radius: 50% !important;
+  margin: 0 4px !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease;
+}
+.swiper-pagination-bullet-active {
+  background-color: #379cfa !important;
+  width: 2rem !important;
+  height: 6px !important;
+  border-radius: 6px !important;
+}

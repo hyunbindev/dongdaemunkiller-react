@@ -3,11 +3,15 @@ import home_icon from '../../../assets/home.svg';
 import judgment_icon from '../../../assets/judgment.svg';
 import blame_icon from '../../../assets/aim.svg';
 import persona_icon from '../../../assets/persona.svg';
+import news_icon from '../../../assets/news.svg'
+
 
 import home_icon_dark from '../../../assets/dark/home_dark.svg';
 import judgment_icon_dark from '../../../assets/dark/judgment_dark.svg';
 import blame_icon_dark from '../../../assets/dark/aim_dark.svg';
 import persona_icon_dark from '../../../assets/dark/persona_dark.svg';
+import news_icon_dark from '../../../assets/dark/news_dark.svg'
+
 
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -36,6 +40,13 @@ const Footer = () => {
           src={themeMode === 'dark' ? home_icon_dark : home_icon}
         />
         <label className={style.label}>홈</label>
+      </div>
+      <div className={style.element} onClick={() => navigate('/news')}>
+        <img
+          className={style.icon}
+          src={themeMode === 'dark' ? news_icon_dark : news_icon}
+        />
+        <label className={style.label}>뉴스</label>
       </div>
       <div className={style.element} onClick={() => navigate('/judgment')}>
         <img
