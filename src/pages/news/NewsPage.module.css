@@ -2,7 +2,32 @@ div#newsPage {
     background-image: url('../../assets/pattern/paper_pattern_back.webp');
     background-repeat: repeat;
 }
+div#write {
+    position: fixed;
+    bottom: 6rem;
+    right: 1rem;
+    z-index: 100;
+    background-color: rgba(255, 255, 255, 0.795);
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    img {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
 
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
 div#header{
     padding:1rem;
     h1{
@@ -30,9 +55,8 @@ div#carousel{
 }
 
 div#list{
-    background-image: url('../../assets/pattern/paper_pattern_list.png');
-    background-repeat: repeat;
     position: relative;
+    background-color: rgb(224, 224, 224);
     padding:0rem 1rem;
     padding-top: 0.5rem;
     z-index: 2;

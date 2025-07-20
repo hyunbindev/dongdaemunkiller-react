@@ -8,7 +8,9 @@ import CreatePersonaBtn from '../../components/persona/CreatePersonaBtn';
 import usePersona from '../../hooks/usePersona';
 import { useInView } from 'react-intersection-observer';
 import { useNavigate } from 'react-router-dom';
+import useRestoreScroll from '../../hooks/useRestoreScroll';
 const PersonaPage = () => {
+    const {saveScrollPoint} =useRestoreScroll();
     const dispatch = useDispatch();
     const [ref, inView] = useInView();
     const navigate = useNavigate();
@@ -22,6 +24,7 @@ const PersonaPage = () => {
     useEffect(() => {
         initPersonaList(); // 페르소나 목록 초기화
     }, []);
+    
         useEffect(() => {
         if (inView) {
             getNextPage();
@@ -42,7 +45,7 @@ const PersonaPage = () => {
                 {
                     personaList.length > 0 ? (
                         personaList.map((persona) => (
-                            <div onClick={()=>{navigate(`/persona/${persona.personaId}`);}} key={persona.personaId} className={style.personaElement} style={{marginBottom:"1rem"}}>
+                            <div onClick={()=>{saveScrollPoint();navigate(`/persona/${persona.personaId}`);}} key={persona.personaId} className={style.personaElement} style={{marginBottom:"1rem"}}>
                                 <Persona key={persona.personaId} persona={persona} />
                             </div>
                         ))

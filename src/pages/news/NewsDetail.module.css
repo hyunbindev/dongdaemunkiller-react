@@ -1,0 +1,144 @@
+div#newDetailPage {
+    background-image: url('../../assets/pattern/paper_pattern_back.webp');
+    background-repeat: repeat;
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    top:0;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    position: relative;
+        div#back {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 100;
+        background-color: rgba(255, 255, 255, 0.795);
+        display: flex;
+        align-items: center;
+        padding: 0.8rem;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        img {
+            width: 1.8rem;
+            height: 1.8rem;
+            filter: invert(1);  /* SVG 아이콘을 흰색으로 변경 */
+        }
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+}
+div#header{
+    padding:1rem;
+    h1{
+        font-family: "Great Vibes", cursive !important;
+        font-weight: 800;
+        font-style: normal;
+        margin: 0px;
+        font-size: 2rem;
+        text-align: center;
+    }
+    h2{
+        color: rgb(116, 116, 116);
+        margin: 0px;
+        font-family: "Great Vibes", cursive !important;
+        font-size: 1rem;
+        text-align: center;
+    }
+}
+div#content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1{
+        text-align: center;
+        font-family: 'Gowun Dodum', sans-serif;
+        font-size: 2rem;
+        border-bottom: double 3px #000;
+        width: fit-content;
+    }
+    div#imageContainer{
+        padding:0.5rem;
+        margin:0.5rem;
+        background-color: white;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        img{
+            box-sizing: border-box;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+    div#text{
+        padding:1rem;
+        white-space: pre-wrap;
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+    div#info{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding:1rem;
+        box-sizing: border-box;
+        border-bottom: double 4px #000000bb;
+        border-top: double 4px #000000bb;
+        div#author{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1rem;
+            img#profile{
+                height: 2rem;
+                width: 2rem;
+                overflow: hidden;
+                border-radius: 50%;
+                margin-right: 0.5rem;
+            }
+        }
+        div#authorName{
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        div#createdAt{
+            text-align: center;
+            font-family: 'Gowun Dodum', sans-serif;
+            font-size: 1.2rem;
+        }
+    }
+}
+div#commentContainer{
+    margin-top: 1rem;
+    width: 100%;
+}
+div#controller{
+    padding:1rem;
+    display: flex;
+    padding-bottom: 0;
+    div#recommend{
+        display: flex;
+        flex-grow: 1;
+        justify-content: space-around;
+    }
+    div.btnContainer{
+        img{
+            margin-right: 0.5rem;
+        }
+        padding: 0.3rem 0.7rem;
+        border-radius: 1rem;
+        border: 1px solid black;
+        display: flex;
+    }
+
+}

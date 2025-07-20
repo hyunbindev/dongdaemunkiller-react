@@ -1,0 +1,61 @@
+#createPage{
+    min-height: 100vh;
+    background-image: url('../../../assets/pattern/paper_pattern_back.webp');
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5rem;
+    overflow-anchor: none;
+    div#header{
+        padding:1rem;
+        h1{
+            font-family: "Great Vibes", cursive !important;
+            font-weight: 800;
+            font-style: normal;
+            margin: 0px;
+            font-size: 2rem;
+            text-align: center;
+        }
+        h2{
+            color: rgb(116, 116, 116);
+            margin: 0px;
+            font-family: "Great Vibes", cursive !important;
+            font-size: 1rem;
+            text-align: center;
+        }
+    }
+    input#title{
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+        outline: none;
+        text-align: center;
+        font-family: 'Gowun Dodum', sans-serif;
+        font-size: 2rem;
+        border-bottom: double 3px #000;
+        width: auto;
+    }
+
+    div#imageContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin:0.5rem;
+        background-color: white;
+        aspect-ratio: 1/1;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+    #buttonContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button#submit{
+            background-color: transparent;
+            width: fit-content;
+            font-family: 'Gowun Dodum', sans-serif;
+            color: black;
+            padding: 0.5rem;
+            border: 3px double black;
+        }
+    }
+}
