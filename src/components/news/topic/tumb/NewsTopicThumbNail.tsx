@@ -1,12 +1,22 @@
 import style from './NewsTopicThumbNail.module.css'
-import sample_img from '../../../../assets/example.png'
-const NewsTopicThumbNail = ()=>{
+import { NewsResponseInterface } from '../../../../data/NewsInterface'
+import { useNavigate } from 'react-router-dom';
+
+import news_default_image from '../../../../assets/news_paper.jpg';
+
+interface NewsTopicThumbNailProps {
+    news : NewsResponseInterface;
+}
+
+const NewsTopicThumbNail:React.FC<NewsTopicThumbNailProps> = ({news})=>{
+    const navigate = useNavigate();
+
     return(
-        <div className={style.topicThumb}>
-            <img src={sample_img}/>
+        <div className={style.topicThumb} onClick={()=>{navigate(`/news/${news.id}`)}}>
+            <img src={news.imageUrl ?  news.imageUrl : news_default_image}/>
             <div className={style.content}>
-                <h3>기사 title</h3>
-                <p>컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트컨텐ㅊ트</p>
+                <h3>{news.title}</h3>
+                <p>{news.text}</p>
             </div>
         </div>
     )

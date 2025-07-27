@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 const useCreatePersona = () =>{
     const navigate = useNavigate();
     const submitPersona = (voice:Blob|null)=>{
-        console.log('Submitting persona with voice:', voice);
         if(!voice){
             alert('바둑봇이 목소리를 변환하지 못했습니다. 다시 시도해 주세요.');
             return;

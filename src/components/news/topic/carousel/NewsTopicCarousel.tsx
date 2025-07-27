@@ -7,24 +7,23 @@ import 'swiper/css';
 import 'swiper/css/autoplay';
 import './carousel.css'
 import 'swiper/css/pagination';
+import useNews from '../../../../hooks/useNews';
+import { NewsResponseInterface } from '../../../../data/NewsInterface';
 
-const NewsTopicCarousel = ()=>{
+interface NewsTopicCarouselProps {
+    newsRank : NewsResponseInterface[];
+}
+
+const NewsTopicCarousel:React.FC<NewsTopicCarouselProps> = ({newsRank})=>{
     return(
         <div className={style.carousel}>
-            <h2>「東大門 現場르포 — 熱氣 가득한 通路의 오늘」</h2>
+            <h2>「東大門 現場르포」</h2>
             <Swiper  className="topic-carousel" modules={[Autoplay, Pagination]} spaceBetween={5} centeredSlides={true} slidesPerView={1.2} pagination={{ clickable: true }}>
-                <SwiperSlide>
-                    <NewsTopicThumbNail/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <NewsTopicThumbNail/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <NewsTopicThumbNail/>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <NewsTopicThumbNail/>
-                </SwiperSlide>
+                {newsRank.map((item, index) => (
+                    <SwiperSlide key={index}>
+                        <NewsTopicThumbNail news={item}/>
+                    </SwiperSlide>
+                ))}
             </Swiper>
         </div>
     )

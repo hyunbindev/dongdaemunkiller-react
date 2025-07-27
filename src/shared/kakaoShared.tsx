@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { JudgmentResponse } from "../data/JudgmentInterface";
 import { BlameResponse } from "../data/BlameInterface";
 import { PersonaResponse } from "../data/PersonaInterface";
+import { NewsResponseInterface } from "../data/NewsInterface";
 
 const KaKaoShared = ()=>{
     useEffect(()=>{
@@ -92,6 +93,30 @@ const KaKaoShared = ()=>{
             ],
         });
     }
-    return {blameShare , judgmentShare ,personaShare}
+    const newsShare = (news:NewsResponseInterface) => {
+        console.log("Sharing news:", news.imageUrl);
+        window.Kakao.Link.sendDefault({
+            objectType: 'feed',
+            content: {
+                title: `[속보]${news.title}`,
+                description: `${news.text.slice(0, 15)}....`,
+                imageUrl: news.imageUrl || '',
+                link: {
+                    mobileWebUrl: `${HOST_URL}/news/${news.id}`,
+                    webUrl: `${HOST_URL}/news/${news.id}`,
+                },
+            },
+            buttons: [
+                {
+                    title: '뉴스 읽기',
+                    link: {
+                        mobileWebUrl: `${HOST_URL}/news/${news.id}`,
+                        webUrl: `${HOST_URL}/news/${news.id}`,
+                    },
+                },
+            ],
+        });
+    }
+    return {blameShare , judgmentShare ,personaShare, newsShare}
 }
 export default KaKaoShared;

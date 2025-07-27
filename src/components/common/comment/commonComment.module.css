@@ -2,7 +2,6 @@ div.commonComment {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  background-color: white;
   div#commentInputContainer{
     display: flex;
     flex-direction: row;

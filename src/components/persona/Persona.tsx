@@ -13,7 +13,6 @@ interface PersonaProps {
 
 const Persona:React.FC<PersonaProps> = ({persona}) => {
   const authorImage = persona.author?.profile || anno_icon;
-  const navigate = useNavigate();
   return (
     <div className={style.personaElement}>
         <div className={style.personaHeader}>

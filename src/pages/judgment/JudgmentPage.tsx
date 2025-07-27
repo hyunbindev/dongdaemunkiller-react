@@ -6,7 +6,9 @@ import { useEffect, useState } from 'react';
 import Modal from '../../components/modal/Modal';
 import CreateJudgment from '../../components/judgment/create/CreateJudgment';
 import { useInView } from 'react-intersection-observer';
+import useRestoreScroll from '../../hooks/useRestoreScroll';
 const JudgmentPage = () => {
+  const {saveScrollPoint} =useRestoreScroll();
   const {judgmentList, initJudgmentlist ,getNextPage} = useJudgment();
   const [ref, inView] = useInView();
   useEffect(()=>{
@@ -38,9 +40,11 @@ const JudgmentPage = () => {
         {
           /**재판글 리스트 */
           judgmentList.map((judgment,index)=>{
-            return <Link key={judgment.id} to={`/judgment/${judgment.id}`}>
+            return <div onClick={saveScrollPoint}>
+                    <Link key={judgment.id} to={`/judgment/${judgment.id}`}>
                       <Judgment key={judgment.id} judgment={judgment} preview={true}/>
-                    </Link>})
+                    </Link>
+                    </div>})
         }
       </div>
       <div ref={ref} style={{height:"10px"}}></div>

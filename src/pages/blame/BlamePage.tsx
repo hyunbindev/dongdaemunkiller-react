@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, ScrollRestoration, useNavigate } from 'react-router-dom';
 import style from '../commonPage.module.css'
 import Blame from '../../components/blame/Blame';
 import Modal from '../../components/modal/Modal';
@@ -6,19 +6,23 @@ import CreateBlame from '../../components/blame/create/CreateBlame';
 import { use, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import useBlame from '../../hooks/useBlame';
+import KeepAlive, { useActivate, useUnactivate } from 'react-activation';
+import useRestoreScroll from '../../hooks/useRestoreScroll';
 
 const BlamePage = () => {
-    const { blameList ,initBlamelist ,getNextPage ,nextPage} = useBlame();
+    const navigate = useNavigate();
+    const { blameList ,initBlamelist ,getNextPage ,nextPage} = useBlame(navigate);
     const [creatOpen, setCreateOpen] = useState<boolean>(false);
     const [ref, inView] = useInView();
 
+    const {saveScrollPoint} =useRestoreScroll();
+    
     const modalOpenHandler = () => {
         setCreateOpen(true);
     }
-    
+
     const modalCloseHandler = () => {
         setCreateOpen(false);
-    
     }
 
     useEffect(() => {
@@ -28,6 +32,7 @@ const BlamePage = () => {
     }, [,inView]);
 
     return (
+        <>
         <div id={style.page}>
             <div id={style.newPost}>
                 <button onClick={()=>modalOpenHandler()}>새 저격글 작성하기</button>
@@ -41,9 +46,11 @@ const BlamePage = () => {
                 {
                     blameList.map((blame, index) => {
                         return blame.targeted ?(<Blame key={blame.id} blame={blame}/>):(
-                            <Link key={blame.id} to={`/blame/${blame.id}`}>
-                                <Blame key={blame.id} blame={blame}/>
-                            </Link>
+                            <div onClick={saveScrollPoint}>
+                                <Link key={blame.id} to={`/blame/${blame.id}`}>
+                                    <Blame key={blame.id} blame={blame}/>
+                                </Link>
+                            </div>
                         );
                     })
                 }
@@ -57,6 +64,7 @@ const BlamePage = () => {
             }
             <div ref={ref} style={{height:"20px"}}></div>
         </div>
+        </>
     );
 }
 

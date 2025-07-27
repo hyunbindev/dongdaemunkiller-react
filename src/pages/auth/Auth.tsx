@@ -29,6 +29,7 @@ const Auth = () => {
       }
       return null;
     }
+    
     useEffect(()=>{
         const accessToken = searchParams.get('accessToken');
         sessionStorage.setItem('accessToken', accessToken!);

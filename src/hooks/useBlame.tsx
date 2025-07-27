@@ -2,15 +2,14 @@ import { useEffect, useState } from "react";
 import { BlameResponse } from "../data/BlameInterface";
 import api from "../shared/api";
 import { logoutUser } from '../store/slice/userSlice';
-import { useNavigate } from "react-router-dom";
+import { NavigateFunction, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-const useBlame = () =>{
+const useBlame = (navigate:NavigateFunction) =>{
     const [blameList, setBlameList] = useState<BlameResponse[]>([]);
     const [page, setPage] = useState<number>(0);
     const [nextPage, setNextPage] = useState<boolean>(false);
     
-    const navigate = useNavigate();
     const dispatch = useDispatch();
     const initBlamelist = ()=>{
         api.get('/api/v1/blame',{params:{page:0}})
