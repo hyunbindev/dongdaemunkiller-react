@@ -60,12 +60,17 @@ const router = createBrowserRouter([
     element: <Auth />,
   },
   {
+    path: "/auth/redirect",
+    element: <RedirectionAuth />,
+  },
+  {
     path: "/",
-    element: <RootLayout />,
+    element: <RootLayout  />,
     loader: () => {
       if (!isAuthenticated()) {
         // 로그인 안 된 경우 로그인 페이지로 리다이렉트
-        throw redirect('/login');
+        const originalPath = encodeURIComponent(window.location.pathname);
+        throw redirect(`/auth/redirect?redirectPath=${originalPath}`);
       }
       return null;
     },
@@ -83,10 +88,6 @@ const router = createBrowserRouter([
       { path: "news/create", element: <NewsCreatePage /> },
       { path: "news/:newsId", element: <NewsDetailPage /> },
     ],
-  },
-  {
-    path: "*",
-    element: <RedirectionAuth />,
   }
 ]);
 
