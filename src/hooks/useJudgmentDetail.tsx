@@ -27,6 +27,7 @@ const useJudgmentDetail = (judgmentId:string|undefined)=>{
             console.error('Error fetching judgment comments:', error);
         });
     }
+
     const submitJudgmentComment = (comment:string)=>{
         api.post(`/api/v1/judgmentComment/${judgmentId}`, {"text": comment})
         .then((res)=>{setComments([]);getJudgmentComments(0);})

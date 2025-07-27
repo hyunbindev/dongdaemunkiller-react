@@ -19,3 +19,11 @@ export const convertDate = (dateString: string): string => {
         return `${Math.floor(diffInSeconds / 86400)}일 전`;
     }
 }
+
+export const getDateObject = (dateString: string): Date => {
+    // UTC로 파싱된 날짜 객체
+    const utcDate = new Date(dateString);
+
+    // 한국(KST)은 UTC+9, 따라서 보정
+    return new Date(utcDate.getTime() + 9 * 60 * 60 * 1000);
+}

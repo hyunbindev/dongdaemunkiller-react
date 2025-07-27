@@ -1,16 +1,25 @@
 import style from './NewsElement.module.css'
 import sample_img from'../../../assets/example-2.png'
 import { useNavigate } from 'react-router-dom';
-const NewsElement = ()=> {
+import { NewsResponseInterface } from '../../../data/NewsInterface';
+import { convertDate } from '../../../utils/convertDate';
+
+interface NewsElementProps {
+    newsElement:NewsResponseInterface;
+}
+
+const NewsElement:React.FC<NewsElementProps> = ({newsElement})=> {
     const navigate = useNavigate();
     return(
-        <div className={style.NewsElement} onClick={()=>navigate('/news/59')}>
-            <img src={sample_img} className={style.thumb}/>
+        <div className={style.NewsElement} onClick={()=>navigate(`/news/${newsElement.id}`)}>
+            {
+                newsElement.imageUrl ? <img src={newsElement.imageUrl} className={style.thumb}/> : null
+            }
             <div className={style.text}>
-                <h2 className={style.title}>기사글 타이틀</h2>
+                <h2 className={style.title}>{newsElement.title}</h2>
                 <div className={style.info}>
-                    <div>작성자</div>
-                    <div>5시간전</div>
+                    <div>{newsElement.author.name} 기자</div>
+                    <div>{convertDate(newsElement.createdAt)}</div>
                 </div>
             </div>
         </div>
