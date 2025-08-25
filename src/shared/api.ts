@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const api =  axios.create({
+    baseURL: '/dongdaemunkiller',
     timeout: 5000,
     withCredentials: true, 
     headers: {

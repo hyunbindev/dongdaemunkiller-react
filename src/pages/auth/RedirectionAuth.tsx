@@ -9,7 +9,7 @@ const RedirectionAuth = () => {
         const redirectPath = params.get('redirectPath') || '/';
         console.log("Redirecting to:", redirectPath);
         sessionStorage.setItem('redirectPath', redirectPath);
-        window.location.href = `/api/oauth2/authorization/kakao`;
+        window.location.href = `/dongdaemunkiller/api/oauth2/authorization/kakao`;
     },[])
     return<>리다이렉션중...</>
 }

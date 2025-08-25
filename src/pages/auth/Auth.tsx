@@ -33,7 +33,7 @@ const Auth = () => {
     useEffect(()=>{
         const accessToken = searchParams.get('accessToken');
         sessionStorage.setItem('accessToken', accessToken!);
-        axios.get<UserState>('/api/v1/member', {
+        axios.get<UserState>('/dongdaemunkiller/api/v1/member', {
             headers: {
               Authorization: accessToken,
               'Content-Type': 'application/json',
