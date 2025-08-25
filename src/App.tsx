@@ -70,7 +70,7 @@ const router = createBrowserRouter([
       if (!isAuthenticated()) {
         // 로그인 안 된 경우 로그인 페이지로 리다이렉트
         const originalPath = encodeURIComponent(window.location.pathname);
-        throw redirect(`/dongdaemunkiller/auth/redirect?redirectPath=${originalPath}`);
+        throw redirect(`/auth/redirect?redirectPath=${originalPath}`);
       }
       return null;
     },
